@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { PageHeader } from '../components/common/PageHeader';
 import { StatusBadge } from '../components/common/StatusBadge';
 import { Card } from '../components/ui/card';
@@ -269,7 +269,8 @@ export function ExportDocumentation() {
                                 size="sm"
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  window.open(`http://localhost:5001${docStatus}`, '_blank');
+                                  const baseUrl = (import.meta.env.VITE_API_URL || 'http://localhost:5001/api').replace(/\/api$/, '');
+                                  window.open(`${baseUrl}${docStatus}`, '_blank');
                                 }}
                               >
                                 <Eye className="h-4 w-4" />
@@ -279,8 +280,9 @@ export function ExportDocumentation() {
                                 size="sm"
                                 onClick={(e) => {
                                   e.stopPropagation();
+                                  const baseUrl = (import.meta.env.VITE_API_URL || 'http://localhost:5001/api').replace(/\/api$/, '');
                                   const link = document.createElement('a');
-                                  link.href = `http://localhost:5001${docStatus}`;
+                                  link.href = `${baseUrl}${docStatus}`;
                                   link.download = docStatus.split('/').pop() || 'document';
                                   link.click();
                                 }}
