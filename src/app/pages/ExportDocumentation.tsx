@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { PageHeader } from '../components/common/PageHeader';
 import { StatusBadge } from '../components/common/StatusBadge';
 import { Card } from '../components/ui/card';
@@ -164,7 +164,7 @@ export function ExportDocumentation() {
     return (
       <div className="flex h-[80vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+          <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
           <p className="text-gray-500 font-medium">Loading export records...</p>
         </div>
       </div>
@@ -213,7 +213,7 @@ export function ExportDocumentation() {
       {exportDocs.map((shipment: any) => (
         <Card
           key={shipment.id}
-          className="bg-white border border-gray-200 mb-6 cursor-pointer hover:border-[#974926] transition-all overflow-hidden"
+          className="bg-white border border-gray-200 mb-6 cursor-pointer hover:border-[#E8491F] transition-all overflow-hidden"
           onClick={() => setSelectedRecord(shipment)}
         >
           <div className="p-5 border-b border-gray-200">

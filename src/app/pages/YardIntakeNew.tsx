@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Card } from '../components/ui/card';
 import { Button } from '../components/ui/button';
@@ -388,7 +388,7 @@ export function YardIntake() {
             </Button>
             <Button
               size="sm"
-              className="bg-[#203727] hover:bg-[#2d4d39]"
+              className="bg-[#0D0D0D] hover:bg-[#1A1A1A]"
               onClick={() => setIsModalOpen(true)}
             >
               <Plus className="h-4 w-4 mr-2" />
@@ -526,7 +526,7 @@ export function YardIntake() {
 
         {/* Selection Actions */}
         {selectedItems.length > 0 && (
-          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-[#203727] text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-4">
+          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-[#0D0D0D] text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-4">
             <button onClick={() => setSelectedItems([])}>
               <X className="h-4 w-4" />
             </button>
@@ -535,16 +535,16 @@ export function YardIntake() {
               <Button
                 size="sm"
                 variant="outline"
-                className="bg-white text-[#203727] hover:bg-gray-100"
+                className="bg-white text-[#0D0D0D] hover:bg-gray-100"
                 onClick={() => handleExport(selectedItems)}
               >
                 <Download className="h-4 w-4 mr-2" />
                 Export
               </Button>
-              <Button size="sm" variant="outline" className="bg-white text-[#203727] hover:bg-gray-100">
+              <Button size="sm" variant="outline" className="bg-white text-[#0D0D0D] hover:bg-gray-100">
                 Print
               </Button>
-              <Button size="sm" variant="outline" className="bg-white text-[#203727] hover:bg-gray-100">
+              <Button size="sm" variant="outline" className="bg-white text-[#0D0D0D] hover:bg-gray-100">
                 Duplicate
               </Button>
             </div>
@@ -572,7 +572,7 @@ export function YardIntake() {
                   cx="64"
                   cy="64"
                   r="56"
-                  stroke="#203727"
+                  stroke="#0D0D0D"
                   strokeWidth="12"
                   fill="none"
                   strokeDasharray={`${((yardIntake || []).length / 100) * 352} 352`}
@@ -859,8 +859,8 @@ export function YardIntake() {
                 <p className="text-lg font-semibold text-gray-900">{formData.tareWeight.toLocaleString()} <span className="text-xs font-normal text-gray-500">kg</span></p>
               </div>
               <div className="space-y-1">
-                <Label className="text-xs text-[#974926]">Total Net Weight</Label>
-                <p className="text-lg font-bold text-[#974926]">{(formData.grossWeight - formData.tareWeight).toLocaleString()} <span className="text-xs font-normal opacity-70">kg</span></p>
+                <Label className="text-xs text-[#E8491F]">Total Net Weight</Label>
+                <p className="text-lg font-bold text-[#E8491F]">{(formData.grossWeight - formData.tareWeight).toLocaleString()} <span className="text-xs font-normal opacity-70">kg</span></p>
               </div>
             </div>
           </div>
@@ -869,7 +869,7 @@ export function YardIntake() {
               Cancel
             </Button>
             <Button
-              className="bg-[#203727] hover:bg-[#2d4d39]"
+              className="bg-[#0D0D0D] hover:bg-[#1A1A1A]"
               onClick={handleCreateGRN}
             >
               {isEditMode ? 'Save Changes' : 'Create GRN'}
@@ -923,7 +923,7 @@ export function YardIntake() {
               Cancel
             </Button>
             <Button 
-              className="bg-[#974926] hover:bg-[#7d3c1f] text-white"
+              className="bg-[#E8491F] hover:bg-[#C93D18] text-white"
               onClick={confirmAddMaterial}
               disabled={updateSettingsMutation.isPending}
             >

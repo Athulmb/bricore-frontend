@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { PageHeader } from '../components/common/PageHeader';
 import { Card } from '../components/ui/card';
 import { Button } from '../components/ui/button';
@@ -7,6 +7,7 @@ import { Label } from '../components/ui/label';
 import { Trash2, Plus, Package, Save, Search } from 'lucide-react';
 import { useSettingsQuery, useUpdateSettings } from '../hooks/useSettings';
 import { Loader2 } from 'lucide-react';
+import { toast } from 'sonner';
 
 export function MaterialManagement() {
     const { data: companySettings, isLoading } = useSettingsQuery();
@@ -52,7 +53,7 @@ export function MaterialManagement() {
         return (
             <div className="flex h-[80vh] items-center justify-center">
                 <div className="flex flex-col items-center gap-4">
-                    <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+                    <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
                     <p className="text-gray-500 font-medium">Loading material registry...</p>
                 </div>
             </div>
@@ -88,7 +89,7 @@ export function MaterialManagement() {
                     </div>
 
                     <Button
-                        className="w-full bg-[#203727] hover:bg-[#2d4d39]"
+                        className="w-full bg-[#0D0D0D] hover:bg-[#1A1A1A]"
                         onClick={handleAddMaterial}
                         disabled={!newMaterial.trim()}
                     >
@@ -120,10 +121,10 @@ export function MaterialManagement() {
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-h-[500px] overflow-y-auto pr-2">
-                        {filteredMaterials.map((material) => (
+                        {filteredMaterials.map((material: string) => (
                             <div
                                 key={material}
-                                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-100 group hover:border-[#203727]/30 transition-colors"
+                                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-100 group hover:border-[#0D0D0D]/30 transition-colors"
                             >
                                 <span className="font-medium text-gray-700">{material}</span>
                                 <Button

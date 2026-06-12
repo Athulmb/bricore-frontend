@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+﻿import { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { Card } from '../components/ui/card';
 import { Button } from '../components/ui/button';
@@ -482,7 +482,7 @@ export function CreateInvoice() {
         return (
             <div className="flex h-[80vh] items-center justify-center">
                 <div className="flex flex-col items-center gap-4">
-                    <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+                    <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
                     <p className="text-gray-500 font-medium">Preparing invoice data...</p>
                 </div>
             </div>
@@ -505,7 +505,7 @@ export function CreateInvoice() {
                 </div>
                 <div className="flex items-center gap-3">
                     <Button variant="outline" onClick={() => navigate(-1)}>Discard Draft</Button>
-                    <Button onClick={handleCreateInvoice} className="bg-[#203727] hover:bg-[#2d4d39] gap-2 px-6">
+                    <Button onClick={handleCreateInvoice} className="bg-[#0D0D0D] hover:bg-[#1A1A1A] gap-2 px-6">
                         <Save className="h-4 w-4" />
                         Save & Finalize
                     </Button>
@@ -528,7 +528,7 @@ export function CreateInvoice() {
                         </Card>
 
                         <Card
-                            className="p-8 border-2 border-dashed border-slate-200 hover:border-[#203727] hover:bg-slate-50 cursor-pointer transition-all group text-center"
+                            className="p-8 border-2 border-dashed border-slate-200 hover:border-[#0D0D0D] hover:bg-slate-50 cursor-pointer transition-all group text-center"
                             onClick={() => setCreationMode('manual')}
                         >
                             <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
@@ -575,7 +575,7 @@ export function CreateInvoice() {
 
                             {/* 1. Basic Info Card */}
                             <Card className="p-8 shadow-sm border-slate-200">
-                                <div className="flex items-center gap-2 mb-6 text-[#203727]">
+                                <div className="flex items-center gap-2 mb-6 text-[#0D0D0D]">
                                     <Info className="h-5 w-5" />
                                     <h3 className="font-bold uppercase tracking-wider text-sm">Invoice Essentials</h3>
                                 </div>
@@ -587,7 +587,7 @@ export function CreateInvoice() {
                                             Select Client
                                         </Label>
                                         <Select value={formData.clientId} onValueChange={(v) => setFormData({ ...formData, clientId: v })} disabled={creationMode === 'quotation' && !!formData.clientId}>
-                                            <SelectTrigger className="h-12 border-slate-200 focus:ring-[#203727]">
+                                            <SelectTrigger className="h-12 border-slate-200 focus:ring-[#0D0D0D]">
                                                 <SelectValue placeholder="Which client is this for?" />
                                             </SelectTrigger>
                                             <SelectContent>
@@ -609,7 +609,7 @@ export function CreateInvoice() {
                                             <Select value={formData.shipmentId} onValueChange={(v) => {
                                                 setFormData({ ...formData, shipmentId: v });
                                             }}>
-                                                <SelectTrigger className="h-12 border-slate-200 focus:ring-[#203727]">
+                                                <SelectTrigger className="h-12 border-slate-200 focus:ring-[#0D0D0D]">
                                                     <SelectValue placeholder="Linked Shipment ID" />
                                                 </SelectTrigger>
                                                 <SelectContent>
@@ -662,7 +662,7 @@ export function CreateInvoice() {
                                             {/* 2. Line Items Card */}
                                             <Card className="shadow-sm border-slate-200 overflow-hidden">
                                                 <div className="bg-slate-50/50 px-8 py-5 border-b flex items-center justify-between">
-                                                    <div className="flex items-center gap-2 text-[#203727]">
+                                                    <div className="flex items-center gap-2 text-[#0D0D0D]">
                                                         <FileText className="h-5 w-5" />
                                                         <h3 className="font-bold uppercase tracking-wider text-sm">Line Items</h3>
                                                     </div>
@@ -673,13 +673,13 @@ export function CreateInvoice() {
                                                             variant="outline"
                                                             size="sm"
                                                             onClick={() => handleLoadYardIntakes()}
-                                                            className="bg-white hover:bg-slate-100 text-[#974926] border-[#974926]/20 transition-all shadow-sm"
+                                                            className="bg-white hover:bg-slate-100 text-[#E8491F] border-[#E8491F]/20 transition-all shadow-sm"
                                                         >
                                                             <Package className="h-4 w-4 mr-2" />
                                                             Load from Yard Intake
                                                         </Button>
                                                     )} */}
-                                                        <Button type="button" variant="outline" size="sm" onClick={addLineItem} className="bg-white hover:bg-[#203727] hover:text-white transition-all shadow-sm">
+                                                        <Button type="button" variant="outline" size="sm" onClick={addLineItem} className="bg-white hover:bg-[#0D0D0D] hover:text-white transition-all shadow-sm">
                                                             <Plus className="h-4 w-4 mr-2" />
                                                             Add New Line
                                                         </Button>
@@ -714,7 +714,7 @@ export function CreateInvoice() {
                                                                         value={item.quantity}
                                                                         onChange={(e) => updateLineItem(item.id, 'quantity', parseFloat(e.target.value) || 0)}
                                                                         onFocus={(e) => e.target.select()}
-                                                                        className="h-11 text-center border-slate-200 focus:ring-[#203727]"
+                                                                        className="h-11 text-center border-slate-200 focus:ring-[#0D0D0D]"
                                                                     />
                                                                 </div>
                                                                 <div className="col-span-2">
@@ -724,7 +724,7 @@ export function CreateInvoice() {
                                                                         value={item.rate}
                                                                         onChange={(e) => updateLineItem(item.id, 'rate', parseFloat(e.target.value) || 0)}
                                                                         onFocus={(e) => e.target.select()}
-                                                                        className="h-11 text-right border-slate-200 focus:ring-[#203727]"
+                                                                        className="h-11 text-right border-slate-200 focus:ring-[#0D0D0D]"
                                                                     />
                                                                 </div>
                                                                 <div className="col-span-2 flex items-center gap-3">
@@ -753,7 +753,7 @@ export function CreateInvoice() {
                                                 <Label className="text-xs font-black uppercase text-slate-400 tracking-widest block">Additional Notes & Terms</Label>
                                                 <Textarea
                                                     placeholder="Include specific bank branch, cargo handling terms, or custom instructions..."
-                                                    className="min-h-[120px] border-slate-200 focus:ring-[#203727] p-4"
+                                                    className="min-h-[120px] border-slate-200 focus:ring-[#0D0D0D] p-4"
                                                     value={formData.notes}
                                                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                                                 />
@@ -771,9 +771,9 @@ export function CreateInvoice() {
                                                 variant="outline"
                                                 size="sm"
                                                 onClick={addLineItem}
-                                                className="h-11 px-6 border-slate-200 hover:border-[#203727] hover:bg-slate-50 transition-all font-bold group"
+                                                className="h-11 px-6 border-slate-200 hover:border-[#0D0D0D] hover:bg-slate-50 transition-all font-bold group"
                                             >
-                                                <Plus className="h-4 w-4 mr-2 text-slate-400 group-hover:text-[#203727]" />
+                                                <Plus className="h-4 w-4 mr-2 text-slate-400 group-hover:text-[#0D0D0D]" />
                                                 Create Manual Line Item
                                             </Button>
                                         </div>
@@ -785,7 +785,7 @@ export function CreateInvoice() {
                         {/* Right Column: Summaries & Previews */}
                         <div className="col-span-4 space-y-8">
                             {/* Bill To Preview Wrapper */}
-                            <div className="bg-[#203727] rounded-2xl p-8 text-white shadow-xl relative overflow-hidden group">
+                            <div className="bg-[#0D0D0D] rounded-2xl p-8 text-white shadow-xl relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl group-hover:bg-white/10 transition-all duration-700"></div>
 
                                 <div className="relative z-10 space-y-6">
@@ -859,7 +859,7 @@ export function CreateInvoice() {
                                             <div className="relative">
                                                 <Input
                                                     type="number"
-                                                    className="h-12 text-right font-mono bg-white/5 border-white/10 text-white focus:ring-[#203727] text-lg pl-10"
+                                                    className="h-12 text-right font-mono bg-white/5 border-white/10 text-white focus:ring-[#0D0D0D] text-lg pl-10"
                                                     value={discountValue}
                                                     onChange={(e) => setDiscountValue(parseFloat(e.target.value) || 0)}
                                                 />
@@ -876,17 +876,17 @@ export function CreateInvoice() {
                                             <Input
                                                 type="number"
                                                 step="0.1"
-                                                className="h-12 text-right font-mono bg-white/5 border-white/10 text-white focus:ring-[#203727] text-lg"
+                                                className="h-12 text-right font-mono bg-white/5 border-white/10 text-white focus:ring-[#0D0D0D] text-lg"
                                                 value={vatPercentage}
                                                 onChange={(e) => setVatPercentage(parseFloat(e.target.value) || 0)}
                                             />
-                                            <div className="flex justify-between text-sm font-bold text-[#974926] bg-[#974926]/10 px-4 py-2 rounded-lg">
+                                            <div className="flex justify-between text-sm font-bold text-[#E8491F] bg-[#E8491F]/10 px-4 py-2 rounded-lg">
                                                 <span>VAT Amount:</span>
                                                 <span>{formatCurrency(tax, false)}</span>
                                             </div>
                                         </div>
 
-                                        <div className="pt-8 border-t-2 border-[#203727] flex justify-between items-end bg-gradient-to-t from-[#203727]/10 to-transparent -mx-8 px-8 pb-4">
+                                        <div className="pt-8 border-t-2 border-[#0D0D0D] flex justify-between items-end bg-gradient-to-t from-[#0D0D0D]/10 to-transparent -mx-8 px-8 pb-4">
                                             <div className="space-y-1">
                                                 <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Grand Total Due</span>
                                                 <div className="text-4xl font-black text-white">{formatCurrency(total, false)}</div>
@@ -896,7 +896,7 @@ export function CreateInvoice() {
 
                                     <Button
                                         onClick={handleCreateInvoice}
-                                        className="w-full h-14 text-base font-bold bg-[#203727] hover:bg-green-700 text-white shadow-xl shadow-green-900/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                                        className="w-full h-14 text-base font-bold bg-[#0D0D0D] hover:bg-green-700 text-white shadow-xl shadow-green-900/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
                                     >
                                         Create & Download PDF
                                     </Button>

@@ -9,13 +9,16 @@ const api = axios.create({
 });
 
 // Response interceptor to handle unauthorized errors
+// NOTE: We avoid window.location.href here to prevent hard-reload loops.
+// Instead we dispatch a custom event that AuthContext can listen to.
 api.interceptors.response.use(
     (response) => response,
     (error) => {
         if (error.response?.status === 401) {
-            localStorage.removeItem('gme_user');
-            localStorage.removeItem('gme_token'); // For compatibility during rollout
-            window.location.href = '/login';
+            localStorage.removeItem('britcore_user');
+            localStorage.removeItem('britcore_token');
+            // Dispatch event so React can handle the redirect via the router
+            window.dispatchEvent(new Event('auth:unauthorized'));
         }
         return Promise.reject(error);
     }

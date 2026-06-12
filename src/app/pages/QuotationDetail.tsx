@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { ArrowLeft, Download, Send, Printer, Building, Phone, Mail } from 'lucide-react';
 import { Button } from '../components/ui/button';
@@ -19,7 +19,7 @@ import {
 import { useQuotationsQuery, useUpdateQuotation, QuotationRecord, useSendQuotationEmail } from '../hooks/useQuotations';
 import { Loader2 } from 'lucide-react';
 import { currencies, CurrencyCode } from '../context/CurrencyContext';
-import logo from '../../assets/gme_logo.png';
+import logo from '../../assets/logo-02 1.png';
 import { useSettingsQuery } from '../hooks/useSettings';
 import { useClientsQuery } from '../hooks/useClients';
 import api from '../api';
@@ -57,7 +57,7 @@ export function QuotationDetail() {
   if (isLoading) {
     return (
       <div className="flex h-[80vh] items-center justify-center">
-        <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+        <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
         <p className="ml-4 text-gray-500 font-medium">Loading quotation details...</p>
       </div>
     );
@@ -90,7 +90,7 @@ export function QuotationDetail() {
     const currencyCode = (quotation?.currency || companySettings?.currency || 'AED') as CurrencyCode;
 
     // Header
-    doc.setFillColor(32, 55, 39);
+    doc.setFillColor(13, 13, 13);
     doc.rect(0, 0, 210, 45, 'F');
     try { doc.addImage(logo, 'PNG', 20, 10, 30, 30); } catch (e) { }
 
@@ -115,7 +115,7 @@ export function QuotationDetail() {
     }
 
     // Client
-    doc.setTextColor(32, 55, 39);
+    doc.setTextColor(13, 13, 13);
     doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
     doc.text('QUOTATION FOR:', 20, 55);
@@ -142,7 +142,7 @@ export function QuotationDetail() {
         formatCurrency(item.rate, true, true),
         formatCurrency(item.total || (item.quantity * item.rate), true, true)
       ]),
-      headStyles: { fillColor: [32, 55, 39] },
+      headStyles: { fillColor: [13, 13, 13] },
     });
 
     const finalY = (doc as any).lastAutoTable.finalY + 10;
@@ -166,7 +166,7 @@ export function QuotationDetail() {
 
     doc.setFontSize(14);
     doc.setFont('helvetica', 'bold');
-    doc.setTextColor(32, 55, 39);
+    doc.setTextColor(13, 13, 13);
     doc.text('TOTAL AMOUNT:', 110, finalY + 25);
     doc.text(formatCurrency(quotation.amount, true, true), 196, finalY + 25, { align: 'right' });
 
@@ -233,7 +233,7 @@ export function QuotationDetail() {
             size="sm" 
             onClick={handleSendEmail} 
             disabled={sendEmailMutation.isPending}
-            className="bg-[#203727] hover:bg-[#2d4d39] text-white"
+            className="bg-[#0D0D0D] hover:bg-[#1A1A1A] text-white"
           >
             {sendEmailMutation.isPending ? (
               <Loader2 className="h-4 w-4 mr-2 animate-spin" />
@@ -242,14 +242,14 @@ export function QuotationDetail() {
             )}
             Email Client
           </Button>
-          <Button size="sm" onClick={() => window.print()} className="bg-[#974926] hover:bg-[#7d3c1f] text-white">
+          <Button size="sm" onClick={() => window.print()} className="bg-[#E8491F] hover:bg-[#C93D18] text-white">
             <Printer className="h-4 w-4 mr-2" /> Print
           </Button>
         </div>
       </div>
 
       <Card className="max-w-[1000px] mx-auto shadow-xl border-0 overflow-hidden bg-white">
-        <div className="bg-[#203727] text-white p-12 flex justify-between items-start">
+        <div className="bg-[#0D0D0D] text-white p-12 flex justify-between items-start">
           <div className="space-y-4">
             <img src={logo} alt="GME Logo" className="h-20 w-auto" />
             <div>
@@ -272,7 +272,7 @@ export function QuotationDetail() {
                 <Button 
                   variant="ghost" 
                   size="icon" 
-                  className="h-8 w-8 text-slate-400 hover:text-[#203727] hover:bg-[#203727]/10" 
+                  className="h-8 w-8 text-slate-400 hover:text-[#0D0D0D] hover:bg-[#0D0D0D]/10" 
                   onClick={handleSendEmail}
                   title="Send via Email"
                 >
@@ -313,7 +313,7 @@ export function QuotationDetail() {
           </div>
 
           {quotation.subject && (
-            <div className="mb-8 p-6 bg-slate-50/50 rounded-xl border-l-4 border-[#203727] shadow-sm">
+            <div className="mb-8 p-6 bg-slate-50/50 rounded-xl border-l-4 border-[#0D0D0D] shadow-sm">
               <h4 className="text-[10px] font-black text-slate-400 mb-1 uppercase tracking-widest">Quotation Subject</h4>
               <p className="text-lg font-bold text-gray-900">{quotation.subject}</p>
             </div>
@@ -321,7 +321,7 @@ export function QuotationDetail() {
 
           <div className="border rounded-lg overflow-hidden mb-8">
             <Table>
-              <TableHeader className="bg-[#203727]">
+              <TableHeader className="bg-[#0D0D0D]">
                 <TableRow>
                   <TableHead className="text-white px-6">Description</TableHead>
                   <TableHead className="text-white text-center">Qty</TableHead>
@@ -355,14 +355,14 @@ export function QuotationDetail() {
                 </div>
               )}
               {quotation.vat > 0 && (
-                <div className="flex justify-between text-[#974926]">
+                <div className="flex justify-between text-[#E8491F]">
                   <span>VAT:</span>
                   <span className="font-bold">{formatCurrency(quotation.vat, true, true)}</span>
                 </div>
               )}
               <div className="pt-4 border-t-2 flex justify-between items-baseline">
-                <span className="text-lg font-bold text-[#203727]">Total:</span>
-                <span className="text-3xl font-black text-[#203727]">{formatCurrency(quotation.amount, true, true)}</span>
+                <span className="text-lg font-bold text-[#0D0D0D]">Total:</span>
+                <span className="text-3xl font-black text-[#0D0D0D]">{formatCurrency(quotation.amount, true, true)}</span>
               </div>
             </div>
           </div>

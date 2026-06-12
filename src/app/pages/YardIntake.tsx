@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { PageHeader } from '../components/common/PageHeader';
 import { StatusBadge } from '../components/common/StatusBadge';
@@ -142,7 +142,7 @@ export function YardIntake() {
               <TableRow>
                 <TableCell colSpan={10} className="h-32 text-center text-gray-500">
                   <div className="flex flex-col items-center gap-2">
-                    <Loader2 className="h-8 w-8 animate-spin text-[#974926]" />
+                    <Loader2 className="h-8 w-8 animate-spin text-[#E8491F]" />
                     <span>Loading intake records...</span>
                   </div>
                 </TableCell>
@@ -166,7 +166,7 @@ export function YardIntake() {
                   className="cursor-pointer hover:bg-gray-50"
                 >
                   <TableCell
-                    className="font-medium text-[#974926]"
+                    className="font-medium text-[#E8491F]"
                     onClick={() => navigate(`/yard-intake/${record.grnNumber}`)}
                   >
                     {record.grnNumber}
@@ -311,7 +311,7 @@ export function YardIntake() {
                 {formData.mineralType.map((type) => (
                   <span
                     key={type}
-                    className="inline-flex items-center gap-1 bg-[#974926] text-white px-2 py-0.5 rounded text-sm"
+                    className="inline-flex items-center gap-1 bg-[#E8491F] text-white px-2 py-0.5 rounded text-sm"
                   >
                     {type}
                     <button

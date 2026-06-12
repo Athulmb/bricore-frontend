@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { PageHeader } from '../components/common/PageHeader';
 import { StatusBadge } from '../components/common/StatusBadge';
@@ -39,7 +39,7 @@ export function ExportDocDetail() {
         return (
             <div className="flex h-[80vh] items-center justify-center">
                 <div className="flex flex-col items-center gap-4">
-                    <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+                    <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
                     <p className="text-gray-500 font-medium">Loading shipment records...</p>
                 </div>
             </div>
@@ -52,7 +52,7 @@ export function ExportDocDetail() {
                 <div className="text-center">
                     <h2 className="text-2xl font-bold text-gray-900 mb-2">Shipment Not Found</h2>
                     <p className="text-gray-500 mb-6">The shipment ID {id} does not exist.</p>
-                    <Button onClick={() => navigate('/export-documentation')} className="bg-[#974926] text-white">
+                    <Button onClick={() => navigate('/export-documentation')} className="bg-[#E8491F] text-white">
                         Back to List
                     </Button>
                 </div>
@@ -213,7 +213,7 @@ export function ExportDocDetail() {
 
                     <div className="pt-4 border-t border-gray-100">
                         <Button
-                            className="w-full bg-[#974926] hover:bg-[#803d1f] text-white"
+                            className="w-full bg-[#E8491F] hover:bg-[#803d1f] text-white"
                             onClick={() => toast.success('Compliance review initiated')}
                         >
                             <ShieldCheck className="h-4 w-4 mr-2" />

@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+﻿import { useState, useMemo, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { Card } from '../components/ui/card';
 import { Button } from '../components/ui/button';
@@ -232,7 +232,7 @@ export function CreateQuotation() {
     if (isLoadingSettings || isLoadingClients) {
         return (
             <div className="flex h-[80vh] items-center justify-center">
-                <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+                <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
             </div>
         );
     }
@@ -251,7 +251,7 @@ export function CreateQuotation() {
                 </div>
                 <div className="flex items-center gap-3">
                     <Button variant="outline" onClick={() => navigate(-1)}>Discard</Button>
-                    <Button onClick={handleSaveQuotation} className="bg-[#203727] hover:bg-[#2d4d39] gap-2 px-6">
+                    <Button onClick={handleSaveQuotation} className="bg-[#0D0D0D] hover:bg-[#1A1A1A] gap-2 px-6">
                         <Save className="h-4 w-4" />
                         {isEdit ? 'Update Quotation' : 'Save Quotation'}
                     </Button>
@@ -262,7 +262,7 @@ export function CreateQuotation() {
                 <div className="grid grid-cols-12 gap-8">
                     <div className="col-span-8 space-y-8">
                         <Card className="p-8 shadow-sm border-slate-200">
-                            <div className="flex items-center gap-2 mb-6 text-[#203727]">
+                            <div className="flex items-center gap-2 mb-6 text-[#0D0D0D]">
                                 <Info className="h-5 w-5" />
                                 <h3 className="font-bold uppercase tracking-wider text-sm">Quotation Details</h3>
                             </div>
@@ -274,7 +274,7 @@ export function CreateQuotation() {
                                         Select Client
                                     </Label>
                                     <Select value={formData.clientId} onValueChange={(v) => setFormData({ ...formData, clientId: v })}>
-                                        <SelectTrigger className="h-12 border-slate-200 focus:ring-[#203727]">
+                                        <SelectTrigger className="h-12 border-slate-200 focus:ring-[#0D0D0D]">
                                             <SelectValue placeholder="Which client is this for?" />
                                         </SelectTrigger>
                                         <SelectContent>
@@ -292,7 +292,7 @@ export function CreateQuotation() {
                                         Salesperson / Handler
                                     </Label>
                                     <Select value={formData.salesPerson} onValueChange={(v) => setFormData({ ...formData, salesPerson: v })}>
-                                        <SelectTrigger className="h-12 border-slate-200 focus:ring-[#203727]">
+                                        <SelectTrigger className="h-12 border-slate-200 focus:ring-[#0D0D0D]">
                                             <SelectValue placeholder="Who is handling this?" />
                                         </SelectTrigger>
                                         <SelectContent>
@@ -314,7 +314,7 @@ export function CreateQuotation() {
                                     placeholder="Enter a brief subject for this quotation..."
                                     value={formData.subject}
                                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                                    className="h-12 border-slate-200 focus:ring-[#203727]"
+                                    className="h-12 border-slate-200 focus:ring-[#0D0D0D]"
                                 />
                             </div>
 
@@ -342,11 +342,11 @@ export function CreateQuotation() {
 
                         <Card className="shadow-sm border-slate-200 overflow-hidden">
                             <div className="bg-slate-50/50 px-8 py-5 border-b flex items-center justify-between">
-                                <div className="flex items-center gap-2 text-[#203727]">
+                                <div className="flex items-center gap-2 text-[#0D0D0D]">
                                     <FileText className="h-5 w-5" />
                                     <h3 className="font-bold uppercase tracking-wider text-sm">Line Items</h3>
                                 </div>
-                                <Button type="button" variant="outline" size="sm" onClick={addLineItem} className="bg-white hover:bg-[#203727] hover:text-white transition-all shadow-sm">
+                                <Button type="button" variant="outline" size="sm" onClick={addLineItem} className="bg-white hover:bg-[#0D0D0D] hover:text-white transition-all shadow-sm">
                                     <Plus className="h-4 w-4 mr-2" />
                                     Add Item
                                 </Button>
@@ -379,7 +379,7 @@ export function CreateQuotation() {
                                                     placeholder="0"
                                                     value={item.quantity}
                                                     onChange={(e) => updateLineItem(item.id, 'quantity', parseFloat(e.target.value) || 0)}
-                                                    className="h-11 text-center border-slate-200 focus:ring-[#203727]"
+                                                    className="h-11 text-center border-slate-200 focus:ring-[#0D0D0D]"
                                                 />
                                             </div>
                                             <div className="col-span-2">
@@ -388,7 +388,7 @@ export function CreateQuotation() {
                                                     placeholder="0.00"
                                                     value={item.rate}
                                                     onChange={(e) => updateLineItem(item.id, 'rate', parseFloat(e.target.value) || 0)}
-                                                    className="h-11 text-right border-slate-200 focus:ring-[#203727]"
+                                                    className="h-11 text-right border-slate-200 focus:ring-[#0D0D0D]"
                                                 />
                                             </div>
                                             <div className="col-span-2 flex items-center gap-3">
@@ -416,7 +416,7 @@ export function CreateQuotation() {
                             <Label className="text-xs font-black uppercase text-slate-400 tracking-widest block">Notes & Terms</Label>
                             <Textarea
                                 placeholder="Include any specific terms, validity conditions, or payment schedules..."
-                                className="min-h-[120px] border-slate-200 focus:ring-[#203727] p-4"
+                                className="min-h-[120px] border-slate-200 focus:ring-[#0D0D0D] p-4"
                                 value={formData.notes}
                                 onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                             />
@@ -424,7 +424,7 @@ export function CreateQuotation() {
                     </div>
 
                     <div className="col-span-4 space-y-8">
-                        <div className="bg-[#203727] rounded-2xl p-8 text-white shadow-xl relative overflow-hidden">
+                        <div className="bg-[#0D0D0D] rounded-2xl p-8 text-white shadow-xl relative overflow-hidden">
                             <div className="relative z-10 space-y-6">
                                 <div>
                                     <h3 className="text-[10px] font-black text-white/40 uppercase tracking-[0.2em] mb-4">Quotation Settings</h3>
@@ -471,7 +471,7 @@ export function CreateQuotation() {
                                 <div className="space-y-4 pt-4 border-t border-white/5">
                                     <div className="flex justify-between items-center">
                                         <span className="text-sm text-slate-400">VAT (%)</span>
-                                        <span className="text-sm font-bold text-[#974926]">{formatCurrency(tax, false)}</span>
+                                        <span className="text-sm font-bold text-[#E8491F]">{formatCurrency(tax, false)}</span>
                                     </div>
                                     <Input
                                         type="number"
@@ -482,7 +482,7 @@ export function CreateQuotation() {
                                     />
                                 </div>
 
-                                <div className="pt-8 border-t-2 border-[#203727] flex justify-between items-end">
+                                <div className="pt-8 border-t-2 border-[#0D0D0D] flex justify-between items-end">
                                     <div className="space-y-1">
                                         <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Total Value</span>
                                         <div className="text-4xl font-black text-white">{formatCurrency(total, false)}</div>
@@ -492,7 +492,7 @@ export function CreateQuotation() {
 
                             <Button
                                 onClick={handleSaveQuotation}
-                                className="w-full h-14 text-base font-bold bg-[#203727] hover:bg-green-700 text-white shadow-xl transition-all"
+                                className="w-full h-14 text-base font-bold bg-[#0D0D0D] hover:bg-green-700 text-white shadow-xl transition-all"
                             >
                                 {isEdit ? 'Update Quotation' : 'Create Quotation'}
                             </Button>

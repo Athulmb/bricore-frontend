@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { PageHeader } from '../components/common/PageHeader';
 import { StatusBadge } from '../components/common/StatusBadge';
@@ -79,7 +79,7 @@ export function InvoicesFinancials() {
     return (
       <div className="flex h-[80vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+          <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
           <p className="text-gray-500 font-medium">Loading financial records...</p>
         </div>
       </div>
@@ -165,7 +165,7 @@ export function InvoicesFinancials() {
                     className="cursor-pointer hover:bg-gray-50"
                     onClick={() => navigate(`/invoices-financials/${invoice.id}`)}
                   >
-                    <TableCell className="font-medium text-[#974926]">{invoice.invoiceId}</TableCell>
+                    <TableCell className="font-medium text-[#E8491F]">{invoice.invoiceId}</TableCell>
                     <TableCell>{invoice.client}</TableCell>
                     <TableCell className="font-medium">{formatCurrency(invoice.amount, true, invoice.currency)}</TableCell>
                     <TableCell className="text-gray-600">{invoice.date}</TableCell>

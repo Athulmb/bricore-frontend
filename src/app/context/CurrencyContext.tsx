@@ -83,9 +83,9 @@ interface CurrencyContextType {
 const CurrencyContext = createContext<CurrencyContextType | undefined>(undefined);
 
 export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    // Only enable the query if we have a user in localStorage to prevent infinite loops on login page
+    // Only enable the query if we have a user in localStorage to prevent unnecessary calls on login page
     const { data: companySettings } = useSettingsQuery({ 
-        enabled: !!localStorage.getItem('gme_user') 
+        enabled: !!localStorage.getItem('britcore_user')   // must match USER_KEY in AuthContext
     });
     const [currency, setCurrencyState] = useState<CurrencyCode>(() => {
         const saved = localStorage.getItem('currency');

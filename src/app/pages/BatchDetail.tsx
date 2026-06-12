@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { ArrowLeft, Package, Activity, Beaker, CheckCircle, AlertTriangle, TrendingUp, Calendar, Pencil, FileText, Printer, Plus, Trash2, X, Loader2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
@@ -70,7 +70,7 @@ export function BatchDetail() {
     return (
       <div className="flex h-[80vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+          <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
           <p className="text-gray-500 font-medium">Loading batch details...</p>
         </div>
       </div>
@@ -83,7 +83,7 @@ export function BatchDetail() {
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Batch Not Found</h2>
           <p className="text-gray-500 mb-6">The batch ID {id} does not exist in our system.</p>
-          <Button onClick={() => navigate('/crushing-processing')} className="bg-[#974926] text-white">
+          <Button onClick={() => navigate('/crushing-processing')} className="bg-[#E8491F] text-white">
             Back to Processing
           </Button>
         </div>
@@ -244,19 +244,19 @@ export function BatchDetail() {
                 onClick={() => setActiveStepView(step.statusKey)}
               >
                 <div className={`h-12 w-12 rounded-full flex items-center justify-center border-2 transition-all duration-300 shadow-sm ${stepStatus === 'Completed'
-                  ? 'bg-[#974926] border-[#974926] text-white'
+                  ? 'bg-[#E8491F] border-[#E8491F] text-white'
                   : currentStep === step.statusKey
-                    ? 'bg-white border-[#974926] text-[#974926] ring-4 ring-[#974926]/10 animate-pulse'
+                    ? 'bg-white border-[#E8491F] text-[#E8491F] ring-4 ring-[#E8491F]/10 animate-pulse'
                     : 'bg-white border-gray-200 text-gray-400 group-hover:border-gray-300 group-hover:text-gray-500'
                   } ${activeStepView === step.statusKey ? 'scale-110 !border-dashed' : ''}`}>
                   {stepStatus === 'Completed' ? <CheckCircle className="h-6 w-6" /> : <step.icon className="h-6 w-6" />}
                 </div>
-                <span className={`text-xs font-semibold transition-colors ${stepStatus === 'Completed' || stepStatus === 'Current' ? 'text-[#974926]' : 'text-gray-400'
+                <span className={`text-xs font-semibold transition-colors ${stepStatus === 'Completed' || stepStatus === 'Current' ? 'text-[#E8491F]' : 'text-gray-400'
                   }`}>
                   {step.title}
                 </span>
                 {batchData.status === step.statusKey && (
-                  <span className="absolute -bottom-6 text-[10px] font-bold text-[#974926] whitespace-nowrap bg-[#974926]/10 px-2 py-0.5 rounded-full">
+                  <span className="absolute -bottom-6 text-[10px] font-bold text-[#E8491F] whitespace-nowrap bg-[#E8491F]/10 px-2 py-0.5 rounded-full">
                     Active Status
                   </span>
                 )}
@@ -272,10 +272,10 @@ export function BatchDetail() {
       </Card>
 
       {/* Wizard Active Step Inputs */}
-      <Card className="p-6 border-[#974926]/20 bg-[#fdfaf9]">
+      <Card className="p-6 border-[#E8491F]/20 bg-[#fdfaf9]">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-lg bg-[#974926] text-white flex items-center justify-center">
+            <div className="h-10 w-10 rounded-lg bg-[#E8491F] text-white flex items-center justify-center">
               {steps.find(s => s.statusKey === currentStep)?.icon && (() => {
                 const Icon = steps.find(s => s.statusKey === currentStep)!.icon;
                 return <Icon className="h-5 w-5" />;
@@ -294,17 +294,17 @@ export function BatchDetail() {
                 Save Draft
               </Button>
               {currentStep === 'Pending' && (
-                <Button className="bg-[#974926] hover:bg-[#7d3c1f] text-white" onClick={() => handleSaveChanges('Processing')}>
+                <Button className="bg-[#E8491F] hover:bg-[#C93D18] text-white" onClick={() => handleSaveChanges('Processing')}>
                   Start Crushing
                 </Button>
               )}
               {currentStep === 'Processing' && (
-                <Button className="bg-[#974926] hover:bg-[#7d3c1f] text-white" onClick={() => handleSaveChanges('Quality Check')}>
+                <Button className="bg-[#E8491F] hover:bg-[#C93D18] text-white" onClick={() => handleSaveChanges('Quality Check')}>
                   Move to Quality
                 </Button>
               )}
               {currentStep === 'Quality Check' && (
-                <Button className="bg-[#974926] hover:bg-[#7d3c1f] text-white" onClick={() => handleSaveChanges('Completed')}>
+                <Button className="bg-[#E8491F] hover:bg-[#C93D18] text-white" onClick={() => handleSaveChanges('Completed')}>
                   Finalize Batch
                 </Button>
               )}
@@ -320,7 +320,7 @@ export function BatchDetail() {
                 {formData.rawMaterial.map((type: any) => (
                   <span
                     key={typeof type === 'string' ? type : (type as any).name}
-                    className="inline-flex items-center gap-1 bg-[#974926] text-white px-2 py-0.5 rounded text-sm"
+                    className="inline-flex items-center gap-1 bg-[#E8491F] text-white px-2 py-0.5 rounded text-sm"
                   >
                     {typeof type === 'string' ? type : (type as any).name}
                     <button
@@ -441,7 +441,7 @@ export function BatchDetail() {
                 <div className="flex items-center gap-2 bg-green-50 p-3 rounded border border-green-100">
                   <input
                     type="checkbox"
-                    className="h-4 w-4 rounded border-gray-300 text-[#974926]"
+                    className="h-4 w-4 rounded border-gray-300 text-[#E8491F]"
                     checked={formData.isApproved}
                     onChange={(e) => setFormData({ ...formData, isApproved: e.target.checked })}
                   />
@@ -571,8 +571,8 @@ export function BatchDetail() {
               <p className="text-2xl font-semibold text-gray-900 mt-1">{batchData.inputWeight.toLocaleString()}</p>
               <p className="text-xs text-gray-500 mt-1">MT</p>
             </div>
-            <div className="h-12 w-12 bg-[#f5f0ed] rounded-lg flex items-center justify-center">
-              <Package className="h-6 w-6 text-[#974926]" />
+            <div className="h-12 w-12 bg-[#1A1A1A] rounded-lg flex items-center justify-center">
+              <Package className="h-6 w-6 text-[#E8491F]" />
             </div>
           </div>
         </Card>
@@ -625,7 +625,7 @@ export function BatchDetail() {
             {/* Basic Information */}
             <Card className="p-6">
               <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Package className="h-5 w-5 text-[#974926]" />
+                <Package className="h-5 w-5 text-[#E8491F]" />
                 Batch Information
               </h3>
               <div className="grid grid-cols-2 gap-4">
@@ -639,7 +639,7 @@ export function BatchDetail() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Source GRN</p>
-                  <p className="font-medium text-[#974926] mt-1">{batchData.sourceGRN}</p>
+                  <p className="font-medium text-[#E8491F] mt-1">{batchData.sourceGRN}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Batch Status</p>
@@ -653,7 +653,7 @@ export function BatchDetail() {
             {/* Processing Timeline */}
             <Card className="p-6">
               <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Activity className="h-5 w-5 text-[#974926]" />
+                <Activity className="h-5 w-5 text-[#E8491F]" />
                 Processing Stages
               </h3>
               <Table>
@@ -672,7 +672,7 @@ export function BatchDetail() {
                       <TableCell className="font-medium">{stage.stage}</TableCell>
                       <TableCell className="text-gray-600">{stage.startTime}</TableCell>
                       <TableCell className="text-gray-600">{stage.endTime}</TableCell>
-                      <TableCell className="font-medium text-[#974926]">{stage.duration}</TableCell>
+                      <TableCell className="font-medium text-[#E8491F]">{stage.duration}</TableCell>
                       <TableCell><StatusBadge status={stage.status} /></TableCell>
                     </TableRow>
                   ))}
@@ -683,7 +683,7 @@ export function BatchDetail() {
             {/* Quality Parameters */}
             <Card className="p-6">
               <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Beaker className="h-5 w-5 text-[#974926]" />
+                <Beaker className="h-5 w-5 text-[#E8491F]" />
                 Quality Test Results
               </h3>
               <Table>
@@ -700,7 +700,7 @@ export function BatchDetail() {
                     <TableRow key={index}>
                       <TableCell className="font-medium">{param.parameter}</TableCell>
                       <TableCell className="text-gray-600">{param.specification}</TableCell>
-                      <TableCell className="font-medium text-[#974926]">{param.actual}</TableCell>
+                      <TableCell className="font-medium text-[#E8491F]">{param.actual}</TableCell>
                       <TableCell>
                         <span className="inline-flex items-center gap-1 text-green-600">
                           <CheckCircle className="h-4 w-4" />
@@ -729,12 +729,12 @@ export function BatchDetail() {
                   {batchData.sizeDistribution.map((size: any, index: number) => (
                     <TableRow key={index}>
                       <TableCell className="font-medium">{size.size}</TableCell>
-                      <TableCell className="text-right font-medium text-[#974926]">{size.percentage}%</TableCell>
+                      <TableCell className="text-right font-medium text-[#E8491F]">{size.percentage}%</TableCell>
                       <TableCell className="text-right">{size.weight.toLocaleString()}</TableCell>
                       <TableCell>
                         <div className="w-full bg-gray-200 rounded-full h-2">
                           <div
-                            className="bg-[#974926] h-2 rounded-full"
+                            className="bg-[#E8491F] h-2 rounded-full"
                             style={{ width: `${size.percentage}%` }}
                           />
                         </div>
@@ -751,7 +751,7 @@ export function BatchDetail() {
             {/* Timeline */}
             <Card className="p-6">
               <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-[#974926]" />
+                <Calendar className="h-5 w-5 text-[#E8491F]" />
                 Processing Timeline
               </h3>
               <div className="space-y-4">
@@ -765,7 +765,7 @@ export function BatchDetail() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Total Duration</p>
-                  <p className="font-medium text-[#974926] mt-1">{batchData.processingTime}</p>
+                  <p className="font-medium text-[#E8491F] mt-1">{batchData.processingTime}</p>
                 </div>
               </div>
             </Card>

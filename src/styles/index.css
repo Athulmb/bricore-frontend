@@ -7,3 +7,147 @@
         display: none !important;
     }
 }
+
+/* ── Global reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Glassmorphic background for main content ── */
+.glass-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 0%, rgba(232, 73, 31, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 100%, rgba(232, 73, 31, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(255, 107, 69, 0.04) 0%, transparent 60%),
+    linear-gradient(160deg, #0f0f10 0%, #141418 40%, #111114 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ── Glass card ── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+.glass-card:hover {
+  border-color: rgba(232, 73, 31, 0.20);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(232, 73, 31, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+}
+
+/* ── Glass panel (header / page sections) ── */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Subtle card for tables / large containers ── */
+.glass-surface {
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Glowing accent divider ── */
+.glass-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232, 73, 31, 0.25), transparent);
+}
+
+/* ── Scrollbar — glass theme ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(232, 73, 31, 0.25);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(232, 73, 31, 0.45);
+}
+aside ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); }
+aside ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
+
+/* ── Focus rings — Bricore orange ── */
+*:focus-visible {
+  outline: 2px solid #E8491F;
+  outline-offset: 2px;
+}
+
+/* ── Smooth transitions ── */
+a, button, input, select, textarea {
+  transition: all 0.15s ease;
+}
+
+/* ── Page entry animation ── */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+main > div > * {
+  animation: fadeSlideIn 0.25s ease both;
+}
+
+/* ── Orange glow utility ── */
+.glow-orange {
+  box-shadow: 0 0 0 3px rgba(232, 73, 31, 0.20);
+}
+
+/* ── Status indicator pulse ── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.pulse-dot {
+  animation: pulse-dot 2s ease infinite;
+}
+
+/* ── Floating orb decorations (behind content) ── */
+.glass-orb-1 {
+  position: fixed;
+  top: -120px;
+  right: -80px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 73, 31, 0.09) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(40px);
+}
+.glass-orb-2 {
+  position: fixed;
+  bottom: -100px;
+  left: 200px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 73, 31, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(50px);
+}
+
+/* ── Text color overrides for dark glass theme ── */
+.glass-text-primary   { color: rgba(255, 255, 255, 0.92); }
+.glass-text-secondary { color: rgba(255, 255, 255, 0.55); }
+.glass-text-muted     { color: rgba(255, 255, 255, 0.35); }

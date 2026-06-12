@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { ArrowLeft, Download, Send, Printer, Building, Phone, Mail, ChevronDown } from 'lucide-react';
 import { Button } from '../components/ui/button';
@@ -19,7 +19,7 @@ import {
 import { useInvoicesQuery, useUpdateInvoice } from '../hooks/useInvoices';
 import { Loader2 } from 'lucide-react';
 import { useCurrency, currencies, CurrencyCode } from '../context/CurrencyContext';
-import logo from '../../assets/gme_logo.png';
+import logo from '../../assets/logo-02 1.png';
 
 import { useSettingsQuery } from '../hooks/useSettings';
 import { useClientsQuery } from '../hooks/useClients';
@@ -92,7 +92,7 @@ export function InvoiceDetail() {
     return (
       <div className="flex h-[80vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+          <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
           <p className="text-gray-500 font-medium">Loading invoice details...</p>
         </div>
       </div>
@@ -107,7 +107,7 @@ export function InvoiceDetail() {
     const bank = currentCurr.bankDetails;
 
     // Header
-    doc.setFillColor(32, 55, 39); // #203727
+    doc.setFillColor(13, 13, 13); // #0D0D0D
     doc.rect(0, 0, 210, 45, 'F');
 
     // Add Logo to PDF
@@ -124,12 +124,12 @@ export function InvoiceDetail() {
     doc.text(`RC No: ${companySettings?.rcNumber} | TIN Number: ${companySettings?.tin}`, 55, 28);
     doc.text(`${companySettings?.email} | ${companySettings?.phone}`, 55, 34);
 
-    doc.setTextColor(32, 55, 39);
+    doc.setTextColor(13, 13, 13);
     doc.setFontSize(20);
     doc.text('INVOICE', 196, 20, { align: 'right' });
 
     // Client Details
-    doc.setTextColor(32, 55, 39);
+    doc.setTextColor(13, 13, 13);
     doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
     doc.text('BILL TO:', 20, 55);
@@ -171,7 +171,7 @@ export function InvoiceDetail() {
         formatCurrency(item.rate, false, invoice.currency),
         formatCurrency((item.quantity || item.qty) * item.rate, false, invoice.currency)
       ]),
-      headStyles: { fillColor: [32, 55, 39] },
+      headStyles: { fillColor: [13, 13, 13] },
       columnStyles: {
         0: { cellWidth: 100 },
         1: { halign: 'center', cellWidth: 20 },
@@ -197,7 +197,7 @@ export function InvoiceDetail() {
 
     doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
-    doc.setTextColor(32, 55, 39);
+    doc.setTextColor(13, 13, 13);
     doc.text(`TOTAL AMOUNT:`, totalsX, finalY + 28);
     doc.text(formatCurrency(invoice.amount, false, invoice.currency), 195, finalY + 28, { align: 'right' });
 
@@ -205,7 +205,7 @@ export function InvoiceDetail() {
     const bankY = finalY + 45;
     doc.setFillColor(245, 245, 245);
     doc.rect(20, bankY, 175, 30, 'F');
-    doc.setTextColor(32, 55, 39);
+    doc.setTextColor(13, 13, 13);
     doc.setFontSize(10);
     doc.text('PAYMENT INFORMATION', 25, bankY + 8);
     doc.setFontSize(8);
@@ -259,7 +259,7 @@ export function InvoiceDetail() {
             <Download className="h-4 w-4 mr-2" />
             Download PDF
           </Button>
-          <Button size="sm" onClick={handlePrint} className="bg-[#974926] hover:bg-[#7d3c1f] text-white">
+          <Button size="sm" onClick={handlePrint} className="bg-[#E8491F] hover:bg-[#C93D18] text-white">
             <Printer className="h-4 w-4 mr-2" />
             Print
           </Button>
@@ -269,7 +269,7 @@ export function InvoiceDetail() {
       {/* Invoice Document */}
       <Card className="max-w-[1000px] mx-auto shadow-xl border-0 overflow-hidden print:shadow-none print:max-w-full">
         {/* Dark Green Header */}
-        <div className="bg-[#203727] text-white p-12 flex justify-between items-start">
+        <div className="bg-[#0D0D0D] text-white p-12 flex justify-between items-start">
           <div className="flex flex-col gap-6 items-start">
             <div className="shrink-0">
               <img src={logo} alt="GME Logo" className="h-20 w-auto" />
@@ -340,7 +340,7 @@ export function InvoiceDetail() {
           {/* Table Container */}
           <div className="mb-12 border rounded-lg overflow-hidden">
             <Table>
-              <TableHeader className="bg-[#203727]">
+              <TableHeader className="bg-[#0D0D0D]">
                 <TableRow className="hover:bg-transparent border-0">
                   <TableHead className="text-white font-bold h-12 uppercase text-xs tracking-wider px-6">Description</TableHead>
                   <TableHead className="text-white font-bold h-12 uppercase text-xs tracking-wider text-center px-6">Qty</TableHead>
@@ -372,20 +372,20 @@ export function InvoiceDetail() {
                 <span className="text-base">Discount:</span>
                 <span className="font-bold text-gray-900">-{formatCurrency(invoice.discount || 0, true, invoice.currency)}</span>
               </div>
-              <div className="flex justify-between text-[#974926]">
+              <div className="flex justify-between text-[#E8491F]">
                 <span className="text-base font-semibold">VAT ({companySettings?.vatPercentage}%):</span>
                 <span className="font-bold">{formatCurrency(invoice.vat || 0, true, invoice.currency)}</span>
               </div>
               <div className="pt-4 border-t-2 border-slate-100 flex justify-between items-baseline">
-                <span className="text-xl font-bold text-[#203727]">Total Amount:</span>
-                <span className="text-xl font-black text-[#203727]">{formatCurrency(invoice.amount, true, invoice.currency)}</span>
+                <span className="text-xl font-bold text-[#0D0D0D]">Total Amount:</span>
+                <span className="text-xl font-black text-[#0D0D0D]">{formatCurrency(invoice.amount, true, invoice.currency)}</span>
               </div>
             </div>
           </div>
 
           {/* Terms & Conditions */}
           <div className="mt-20 px-4">
-            <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wider underline underline-offset-4 decoration-[#974926]">Payment Information:</h4>
+            <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wider underline underline-offset-4 decoration-[#E8491F]">Payment Information:</h4>
             <div className="bg-slate-50 p-6 rounded-lg border border-slate-100 text-sm">
               <div className="grid grid-cols-2 gap-8">
                 <div className="space-y-2">
@@ -419,7 +419,7 @@ export function InvoiceDetail() {
         </div>
 
         {/* Dark Green Footer */}
-        <div className="bg-[#203727] text-white p-8 mt-12 text-center">
+        <div className="bg-[#0D0D0D] text-white p-8 mt-12 text-center">
           <p className="text-sm font-bold mb-2">{companySettings?.name || 'GME'}</p>
           <p className="text-xs text-slate-500 max-w-[200px]">
             Mineral Processing & Export • Registered in Nigeria (RC: {companySettings?.rcNumber})

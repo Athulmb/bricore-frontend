@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+﻿import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router';
 import { Card } from '../components/ui/card';
 import { Button } from '../components/ui/button';
@@ -110,7 +110,7 @@ export function QuotationsManagement() {
     return (
       <div className="flex h-[80vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+          <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
           <p className="text-gray-500 font-medium">Loading quotations...</p>
         </div>
       </div>
@@ -124,7 +124,7 @@ export function QuotationsManagement() {
     const bank = currentCurr.bankDetails;
 
     // Company Header
-    doc.setFillColor(32, 55, 39);
+    doc.setFillColor(13, 13, 13);
     doc.rect(0, 0, 210, 40, 'F');
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(22);
@@ -148,7 +148,7 @@ export function QuotationsManagement() {
     }
 
     // Bill To
-    doc.setTextColor(32, 55, 39);
+    doc.setTextColor(13, 13, 13);
     doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
     doc.text('QUOTATION FOR:', 14, 55);
@@ -177,7 +177,7 @@ export function QuotationsManagement() {
       head: [['Description', 'Qty', 'Rate', 'Amount']],
       body: tableData,
       theme: 'grid',
-      headStyles: { fillColor: [32, 55, 39], textColor: [255, 255, 255] },
+      headStyles: { fillColor: [13, 13, 13], textColor: [255, 255, 255] },
     });
 
     // Totals
@@ -202,7 +202,7 @@ export function QuotationsManagement() {
 
     doc.setFontSize(14);
     doc.setFont('helvetica', 'bold');
-    doc.setTextColor(32, 55, 39);
+    doc.setTextColor(13, 13, 13);
     doc.text('TOTAL AMOUNT:', 110, finalY + 25);
     doc.text(formatCurrency(quotation.amount, true, true, quotation.currency), 196, finalY + 25, { align: 'right' });
 
@@ -268,7 +268,7 @@ export function QuotationsManagement() {
             <input
               type="text"
               placeholder="Search quotations..."
-              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#203727]"
+              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0D0D0D]"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -438,7 +438,7 @@ export function QuotationsManagement() {
                   <Download className="h-4 w-4 mr-2" />
                   PDF
                 </Button>
-                <Button variant="outline" size="sm" className="bg-[#203727] border-0 text-white hover:bg-[#2d4d39]" onClick={() => setIsEmailDialogOpen(true)}>
+                <Button variant="outline" size="sm" className="bg-[#0D0D0D] border-0 text-white hover:bg-[#1A1A1A]" onClick={() => setIsEmailDialogOpen(true)}>
                   <Mail className="h-4 w-4 mr-2" />
                   Email
                 </Button>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router';
 import { PageHeader } from '../components/common/PageHeader';
 import { StatusBadge } from '../components/common/StatusBadge';
@@ -245,7 +245,7 @@ export function CrushingProcessing() {
               <TableRow>
                 <TableCell colSpan={10} className="h-32 text-center text-gray-500">
                   <div className="flex flex-col items-center gap-2">
-                    <Loader2 className="h-8 w-8 animate-spin text-[#974926]" />
+                    <Loader2 className="h-8 w-8 animate-spin text-[#E8491F]" />
                     <span>Loading processing batches...</span>
                   </div>
                 </TableCell>
@@ -269,7 +269,7 @@ export function CrushingProcessing() {
                   className="cursor-pointer hover:bg-gray-50"
                   onClick={() => navigate(`/crushing-processing/${batch.batchId}`)}
                 >
-                  <TableCell className="font-medium text-[#974926]">
+                  <TableCell className="font-medium text-[#E8491F]">
                     {batch.batchId}
                   </TableCell>
                   <TableCell>{batch.supplierName}</TableCell>
@@ -382,7 +382,7 @@ export function CrushingProcessing() {
                 {formData.rawMaterial.map((type) => (
                   <span
                     key={type}
-                    className="inline-flex items-center gap-1 bg-[#974926] text-white px-2 py-0.5 rounded text-sm"
+                    className="inline-flex items-center gap-1 bg-[#E8491F] text-white px-2 py-0.5 rounded text-sm"
                   >
                     {type}
                     <button

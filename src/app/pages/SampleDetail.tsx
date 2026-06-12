@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { PageHeader } from '../components/common/PageHeader';
 import { StatusBadge } from '../components/common/StatusBadge';
@@ -72,7 +72,7 @@ export function SampleDetail() {
         return (
             <div className="flex h-[80vh] items-center justify-center">
                 <div className="flex flex-col items-center gap-4">
-                    <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+                    <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
                     <p className="text-gray-500 font-medium">Loading sample details...</p>
                 </div>
             </div>
@@ -194,7 +194,7 @@ export function SampleDetail() {
                     <Card className="bg-white border border-gray-200">
                         <div className="p-5 border-b border-gray-200 flex justify-between items-center">
                             <h3 className="font-semibold text-gray-900 flex items-center gap-2">
-                                <Beaker className="h-4 w-4 text-[#974926]" />
+                                <Beaker className="h-4 w-4 text-[#E8491F]" />
                                 Test Parameters & Results
                             </h3>
                             <Button variant="outline" size="sm" onClick={() => setIsAddParamOpen(true)}>
@@ -218,7 +218,7 @@ export function SampleDetail() {
                                             <TableRow key={idx}>
                                                 <TableCell className="pl-5 font-medium">{param.parameter}</TableCell>
                                                 <TableCell className="text-gray-600">{param.specification}</TableCell>
-                                                <TableCell className="font-bold text-[#974926]">{param.actual}</TableCell>
+                                                <TableCell className="font-bold text-[#E8491F]">{param.actual}</TableCell>
                                                 <TableCell className="pr-5">
                                                     <div className="flex items-center justify-between">
                                                         <span className={`inline-flex items-center gap-1 ${param.status === 'Pass' ? 'text-green-600' : 'text-red-600'}`}>
@@ -268,10 +268,10 @@ export function SampleDetail() {
                                         {sample.sizeDistribution.map((size: any, idx: number) => (
                                             <TableRow key={idx}>
                                                 <TableCell className="pl-5 font-medium">{size.size}</TableCell>
-                                                <TableCell className="text-[#974926] font-semibold">{size.percentage}%</TableCell>
+                                                <TableCell className="text-[#E8491F] font-semibold">{size.percentage}%</TableCell>
                                                 <TableCell className="pr-5">
                                                     <div className="w-full bg-gray-100 rounded-full h-1.5 max-w-[100px]">
-                                                        <div className="bg-[#974926] h-1.5 rounded-full" style={{ width: `${size.percentage}%` }} />
+                                                        <div className="bg-[#E8491F] h-1.5 rounded-full" style={{ width: `${size.percentage}%` }} />
                                                     </div>
                                                 </TableCell>
                                             </TableRow>
@@ -403,7 +403,7 @@ export function SampleDetail() {
                     </Card>
 
                     {/* Quick Result Summary */}
-                    <Card className="bg-[#974926] text-white p-6 space-y-2">
+                    <Card className="bg-[#E8491F] text-white p-6 space-y-2">
                         <p className="text-xs opacity-70 uppercase tracking-wider">Main Result (Purity)</p>
                         <p className="text-3xl font-bold">{sample.purity}</p>
                         <p className="text-xs opacity-90 mt-2">Verified by Quality Control</p>
@@ -439,7 +439,7 @@ export function SampleDetail() {
                     </div>
                     <DialogFooter>
                         <Button variant="outline" onClick={() => setIsAddDocOpen(false)}>Cancel</Button>
-                        <Button className="bg-[#974926]" onClick={handleAddDocType}>Add Placeholder</Button>
+                        <Button className="bg-[#E8491F]" onClick={handleAddDocType}>Add Placeholder</Button>
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
@@ -492,7 +492,7 @@ export function SampleDetail() {
                     </div>
                     <DialogFooter>
                         <Button variant="outline" onClick={() => setIsAddParamOpen(false)}>Cancel</Button>
-                        <Button className="bg-[#974926]" onClick={handleAddParam}>Add Parameter</Button>
+                        <Button className="bg-[#E8491F]" onClick={handleAddParam}>Add Parameter</Button>
                     </DialogFooter>
                 </DialogContent>
             </Dialog>

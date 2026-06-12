@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { PageHeader } from '../components/common/PageHeader';
 import { StatusBadge } from '../components/common/StatusBadge';
 import { Card } from '../components/ui/card';
@@ -172,7 +172,7 @@ export function InspectionCertification() {
               <TableRow>
                 <TableCell colSpan={10} className="h-32 text-center text-gray-500">
                   <div className="flex flex-col items-center gap-2">
-                    <Loader2 className="h-8 w-8 animate-spin text-[#974926]" />
+                    <Loader2 className="h-8 w-8 animate-spin text-[#E8491F]" />
                     <span>Loading inspections...</span>
                   </div>
                 </TableCell>

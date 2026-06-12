@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useSearchParams } from 'react-router';
 import { PageHeader } from '../components/common/PageHeader';
 import { Card } from '../components/ui/card';
@@ -110,7 +110,7 @@ export function ClientManagement() {
         return (
             <div className="flex h-[80vh] items-center justify-center">
                 <div className="flex flex-col items-center gap-4">
-                    <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+                    <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
                     <p className="text-gray-500 font-medium">Loading client directory...</p>
                 </div>
             </div>
@@ -189,12 +189,12 @@ export function ClientManagement() {
                     <div className="flex items-center justify-between mb-8 px-4">
                         {[1, 2, 3].map((step) => (
                             <div key={step} className="flex items-center flex-1 last:flex-none">
-                                <div className={`flex items-center justify-center w-8 h-8 rounded-full border-2 transition-colors ${currentStep >= step ? 'bg-[#203727] border-[#203727] text-white' : 'border-gray-300 text-gray-400'
+                                <div className={`flex items-center justify-center w-8 h-8 rounded-full border-2 transition-colors ${currentStep >= step ? 'bg-[#0D0D0D] border-[#0D0D0D] text-white' : 'border-gray-300 text-gray-400'
                                     }`}>
                                     {currentStep > step ? <CheckCircle2 className="h-5 w-5" /> : step}
                                 </div>
                                 {step < 3 && (
-                                    <div className={`flex-1 h-0.5 mx-2 ${currentStep > step ? 'bg-[#203727]' : 'bg-gray-200'}`} />
+                                    <div className={`flex-1 h-0.5 mx-2 ${currentStep > step ? 'bg-[#0D0D0D]' : 'bg-gray-200'}`} />
                                 )}
                             </div>
                         ))}
@@ -344,12 +344,12 @@ export function ClientManagement() {
                             Back
                         </Button>
                         {currentStep < 3 ? (
-                            <Button onClick={nextStep} className="bg-[#203727] hover:bg-[#2d4d39]">
+                            <Button onClick={nextStep} className="bg-[#0D0D0D] hover:bg-[#1A1A1A]">
                                 Next Step
                                 <ChevronRight className="h-4 w-4 ml-2" />
                             </Button>
                         ) : (
-                            <Button onClick={handleRegister} className="bg-[#974926] hover:bg-[#b85a2e]">
+                            <Button onClick={handleRegister} className="bg-[#E8491F] hover:bg-[#E8491F]">
                                 {isEditMode ? 'Save Changes' : 'Complete Onboarding'}
                             </Button>
                         )}
@@ -502,7 +502,7 @@ export function ClientManagement() {
                     <div className="flex items-center justify-between p-6 border-b bg-slate-50">
                         <div className="flex items-center gap-3">
                             <div className="p-3 bg-white rounded-xl shadow-sm border border-slate-200">
-                                <Building2 className="h-6 w-6 text-[#203727]" />
+                                <Building2 className="h-6 w-6 text-[#0D0D0D]" />
                             </div>
                             <div>
                                 <h2 className="text-xl font-bold text-gray-900">{selectedClient.name}</h2>
@@ -580,7 +580,7 @@ export function ClientManagement() {
 
                     <div className="p-6 border-t bg-slate-50 flex gap-3">
                         <Button
-                            className="flex-1 bg-[#203727] hover:bg-[#2d4d39]"
+                            className="flex-1 bg-[#0D0D0D] hover:bg-[#1A1A1A]"
                             onClick={() => {
                                 setIsProfileOpen(false);
                                 handleEdit(selectedClient);

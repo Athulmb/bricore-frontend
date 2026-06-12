@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+﻿import { useState, useMemo } from 'react';
 import { PageHeader } from '../components/common/PageHeader';
 import { Card } from '../components/ui/card';
 import { Button } from '../components/ui/button';
@@ -112,7 +112,7 @@ export function VehicleManagement() {
         return (
             <div className="flex h-[80vh] items-center justify-center">
                 <div className="flex flex-col items-center gap-4">
-                    <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+                    <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
                     <p className="text-gray-500 font-medium">Loading vehicle history...</p>
                 </div>
             </div>
@@ -151,7 +151,7 @@ export function VehicleManagement() {
                             </div>
 
                             <Button
-                                className="w-full bg-[#203727] hover:bg-[#2d4d39]"
+                                className="w-full bg-[#0D0D0D] hover:bg-[#1A1A1A]"
                                 onClick={handleAddVehicle}
                                 disabled={!newVehicle.trim()}
                             >
@@ -159,7 +159,7 @@ export function VehicleManagement() {
                             </Button>
                         </Card>
 
-                        <Card className="p-6 bg-[#203727] text-white border-0 shadow-lg flex flex-col justify-center relative overflow-hidden">
+                        <Card className="p-6 bg-[#0D0D0D] text-white border-0 shadow-lg flex flex-col justify-center relative overflow-hidden">
                             <Truck className="absolute -right-6 -bottom-6 h-32 w-32 opacity-10 rotate-12" />
                             <p className="text-sm opacity-80 uppercase tracking-wider font-medium">Registry Status</p>
                             <h2 className="text-4xl font-bold mt-2">{vehicles.length}</h2>
@@ -194,7 +194,7 @@ export function VehicleManagement() {
                                     onClick={() => setSelectedVehicle(vehicle)}
                                     className={`flex items-center justify-between p-3 rounded-lg border transition-all cursor-pointer group ${selectedVehicle === vehicle
                                             ? 'bg-blue-50 border-blue-200 ring-1 ring-blue-100'
-                                            : 'bg-gray-50 border-gray-100 hover:border-[#203727]/30'
+                                            : 'bg-gray-50 border-gray-100 hover:border-[#0D0D0D]/30'
                                         }`}
                                 >
                                     <span className={`font-medium ${selectedVehicle === vehicle ? 'text-blue-700' : 'text-gray-700'}`}>{vehicle}</span>

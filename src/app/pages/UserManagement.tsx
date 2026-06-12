@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { PageHeader } from '../components/common/PageHeader';
 import { StatusBadge } from '../components/common/StatusBadge';
 import { Card } from '../components/ui/card';
@@ -39,6 +39,7 @@ import {
   useDeleteUser 
 } from '../hooks/useUsers';
 import { Loader2 } from 'lucide-react';
+import { toast } from 'sonner';
 
 const roles = [
   { id: 1, name: 'Admin', users: 2, permissions: 'Full system access' },
@@ -129,7 +130,7 @@ export function UserManagement() {
     return (
       <div className="flex h-[80vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+          <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
           <p className="text-gray-500 font-medium">Loading user directory...</p>
         </div>
       </div>
@@ -143,7 +144,7 @@ export function UserManagement() {
     setEditingId(null);
   };
 
-  const activeUsers = users.filter(u => u.status === 'Active').length;
+  const activeUsers = users.filter((u: any) => u.status === 'Active').length;
 
   return (
     <div>
@@ -222,7 +223,7 @@ export function UserManagement() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {users.map((user) => (
+                {users.map((user: any) => (
                   <TableRow key={user.id}>
                     <TableCell className="font-medium">{user.name}</TableCell>
                     <TableCell className="text-blue-600">{user.email}</TableCell>
@@ -336,7 +337,7 @@ export function UserManagement() {
 
           <DialogFooter>
             <Button variant="outline" onClick={() => setIsUserModalOpen(false)}>Cancel</Button>
-            <Button className="bg-[#203727] hover:bg-[#2d4d39]" onClick={handleCreateUser}>
+            <Button className="bg-[#0D0D0D] hover:bg-[#1A1A1A]" onClick={handleCreateUser}>
               {isEditMode ? 'Save Changes' : 'Create Account'}
             </Button>
           </DialogFooter>

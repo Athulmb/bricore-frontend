@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { ArrowLeft, FileText, Package, Truck, User, Calendar, MapPin, Scale, CheckCircle, Pencil, X, TrendingUp, Loader2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
@@ -58,11 +58,11 @@ const printStyles = `
     button, .btn, [role="combobox"], [role="button"] {
       display: none !important;
     }
-    .bg-gray-50, .bg-[#f5f0ed], .bg-[#f5f5f5] {
+    .bg-gray-50, .bg-[#1A1A1A], .bg-[#f5f5f5] {
       background-color: #f9f9f9 !important;
       border: 1px solid #eee !important;
     }
-    .text-[#974926] {
+    .text-[#E8491F] {
       color: #000 !important;
     }
   }
@@ -115,7 +115,7 @@ export function YardIntakeDetail() {
     return (
       <div className="flex h-[80vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+          <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
           <p className="text-gray-500 font-medium">Loading receipt details...</p>
         </div>
       </div>
@@ -312,7 +312,7 @@ export function YardIntakeDetail() {
         <div className="flex justify-between items-end">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">GOODS RECEIPT NOTE</h1>
-            <p className="text-gray-600">GME Interchange Operations</p>
+            <p className="text-gray-600">Britcore Operations</p>
           </div>
           <div className="text-right">
             <p className="font-bold text-xl">{intakeData.grnNumber}</p>
@@ -349,7 +349,7 @@ export function YardIntakeDetail() {
             <FileText className="h-4 w-4 mr-2" />
             Print GRN
           </Button>
-          <Button size="sm" className="bg-[#974926] hover:bg-[#7d3c1f]" onClick={() => setIsEditModalOpen(true)}>
+          <Button size="sm" className="bg-[#E8491F] hover:bg-[#C93D18]" onClick={() => setIsEditModalOpen(true)}>
             <Pencil className="h-4 w-4 mr-2" />
             Edit Details
           </Button>
@@ -363,7 +363,7 @@ export function YardIntakeDetail() {
           {/* Basic Information */}
           <Card className="p-6">
             <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <Package className="h-5 w-5 text-[#974926]" />
+              <Package className="h-5 w-5 text-[#E8491F]" />
               Material Information
             </h3>
             <div className="overflow-x-auto">
@@ -399,7 +399,7 @@ export function YardIntakeDetail() {
             <div className="grid grid-cols-2 gap-4 mt-6 border-t pt-4">
               <div>
                 <p className="text-sm text-gray-500">Lot Number</p>
-                <p className="font-medium text-[#974926] mt-1">{intakeData.lotNumber}</p>
+                <p className="font-medium text-[#E8491F] mt-1">{intakeData.lotNumber}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-500">Storage Location</p>
@@ -411,7 +411,7 @@ export function YardIntakeDetail() {
           {/* Weight Details */}
           <Card className="p-6">
             <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <Scale className="h-5 w-5 text-[#974926]" />
+              <Scale className="h-5 w-5 text-[#E8491F]" />
               Weight Measurements
             </h3>
             <div className="grid grid-cols-3 gap-6">
@@ -425,10 +425,10 @@ export function YardIntakeDetail() {
                 <p className="text-2xl font-semibold text-gray-900 mt-2">{intakeData.tareWeight.toLocaleString()}</p>
                 <p className="text-xs text-gray-500 mt-1">kg</p>
               </div>
-              <div className="text-center p-4 bg-[#f5f0ed] rounded-lg border border-[#974926]/20">
-                <p className="text-sm text-[#974926]">Net Weight</p>
-                <p className="text-2xl font-semibold text-[#974926] mt-2">{intakeData.netWeight.toLocaleString()}</p>
-                <p className="text-xs text-[#974926]/70 mt-1">kg</p>
+              <div className="text-center p-4 bg-[#1A1A1A] rounded-lg border border-[#E8491F]/20">
+                <p className="text-sm text-[#E8491F]">Net Weight</p>
+                <p className="text-2xl font-semibold text-[#E8491F] mt-2">{intakeData.netWeight.toLocaleString()}</p>
+                <p className="text-xs text-[#E8491F]/70 mt-1">kg</p>
               </div>
             </div>
             <div className="mt-4 pt-4 border-t">
@@ -442,7 +442,7 @@ export function YardIntakeDetail() {
           {/* Transport Details */}
           <Card className="p-6">
             <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <Truck className="h-5 w-5 text-[#974926]" />
+              <Truck className="h-5 w-5 text-[#E8491F]" />
               Transport Information
             </h3>
             <div className="grid grid-cols-2 gap-4">
@@ -464,7 +464,7 @@ export function YardIntakeDetail() {
           {/* Documents */}
           <Card className="p-6">
             <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <FileText className="h-5 w-5 text-[#974926]" />
+              <FileText className="h-5 w-5 text-[#E8491F]" />
               Attached Documents
             </h3>
             <div className="space-y-4">
@@ -499,7 +499,7 @@ export function YardIntakeDetail() {
           {/* Timeline */}
           <Card className="p-6">
             <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <Calendar className="h-5 w-5 text-[#974926]" />
+              <Calendar className="h-5 w-5 text-[#E8491F]" />
               Receipt Timeline
             </h3>
             <div className="space-y-4">
@@ -517,7 +517,7 @@ export function YardIntakeDetail() {
           {/* Supplier Info */}
           <Card className="p-6">
             <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <User className="h-5 w-5 text-[#974926]" />
+              <User className="h-5 w-5 text-[#E8491F]" />
               Supplier Details
             </h3>
             <div className="space-y-4">
@@ -527,7 +527,7 @@ export function YardIntakeDetail() {
               </div>
               <div>
                 <p className="text-sm text-gray-500">Supplier Code</p>
-                <p className="font-medium text-[#974926] mt-1">{intakeData.supplierCode}</p>
+                <p className="font-medium text-[#E8491F] mt-1">{intakeData.supplierCode}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-500">Contact Number</p>
@@ -543,7 +543,7 @@ export function YardIntakeDetail() {
           {/* Approval Info */}
           <Card className="p-6">
             <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-[#974926]" />
+              <CheckCircle className="h-5 w-5 text-[#E8491F]" />
               Approval Details
             </h3>
             <div className="space-y-4">
@@ -709,14 +709,14 @@ export function YardIntakeDetail() {
                 <p className="text-lg font-semibold text-gray-900">{formData.tareWeight.toLocaleString()} <span className="text-xs font-normal text-gray-500">kg</span></p>
               </div>
               <div className="space-y-1">
-                <Label className="text-xs text-[#974926]">Total Net Weight</Label>
-                <p className="text-lg font-bold text-[#974926]">{(formData.grossWeight - formData.tareWeight).toLocaleString()} <span className="text-xs font-normal opacity-70">kg</span></p>
+                <Label className="text-xs text-[#E8491F]">Total Net Weight</Label>
+                <p className="text-lg font-bold text-[#E8491F]">{(formData.grossWeight - formData.tareWeight).toLocaleString()} <span className="text-xs font-normal opacity-70">kg</span></p>
               </div>
             </div>
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setIsEditModalOpen(false)}>Cancel</Button>
-            <Button className="bg-[#974926] hover:bg-[#7d3c1f] text-white" onClick={handleSaveChanges}>
+            <Button className="bg-[#E8491F] hover:bg-[#C93D18] text-white" onClick={handleSaveChanges}>
               Save Changes
             </Button>
           </DialogFooter>

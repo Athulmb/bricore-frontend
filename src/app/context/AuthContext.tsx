@@ -18,7 +18,7 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-const USER_KEY = 'gme_user';
+const USER_KEY = 'britcore_user';
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
@@ -37,6 +37,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
     }
     setIsLoading(false);
+  }, []);
+
+  // Listen for 401 unauthorized events from the API interceptor.
+  // By clearing user state here, React Router's ProtectedRoute will
+  // redirect to /login without a hard page reload (no refresh loop).
+  useEffect(() => {
+    const handleUnauthorized = () => {
+      setUser(null);
+    };
+    window.addEventListener('auth:unauthorized', handleUnauthorized);
+    return () => window.removeEventListener('auth:unauthorized', handleUnauthorized);
   }, []);
 
   const login = async (email: string, password: string): Promise<boolean> => {
@@ -62,13 +73,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } catch (error) {
       console.error('Logout failed on server:', error);
     } finally {
-      // 2. Clean up local state regardless of server success
+      // 2. Clean up local state — ProtectedRoute will redirect to /login via React Router
       setUser(null);
       localStorage.removeItem(USER_KEY);
-      localStorage.removeItem('gme_token'); // Clean up any legacy tokens
-      
-      // 3. Force redirect to login
-      window.location.href = '/login';
+      localStorage.removeItem('britcore_token');
+      // NOTE: Do NOT use window.location.href here — it causes a hard reload loop.
+      // The ProtectedRoute component will detect user === null and redirect automatically.
     }
   };
 

@@ -8,9 +8,9 @@
   --card-foreground: #111827;
   --popover: #ffffff;
   --popover-foreground: #111827;
-  --primary: #203727;
+  --primary: #0D0D0D;
   --primary-foreground: #ffffff;
-  --secondary: #974926;
+  --secondary: #E8491F;
   --secondary-foreground: #ffffff;
   --muted: #f3f4f6;
   --muted-foreground: #6b7280;
@@ -25,19 +25,19 @@
   --font-weight-medium: 500;
   --font-weight-normal: 400;
   --ring: #9ca3af;
-  --chart-1: #203727;
-  --chart-2: #974926;
+  --chart-1: #E8491F;
+  --chart-2: #FF6B45;
   --chart-3: #10b981;
   --chart-4: #f59e0b;
   --chart-5: #ef4444;
   --radius: 0.5rem;
-  --sidebar: #203727;
+  --sidebar: #0D0D0D;
   --sidebar-foreground: #f1f5f9;
-  --sidebar-primary: #974926;
+  --sidebar-primary: #E8491F;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #2d4d39;
+  --sidebar-accent: #1A1A1A;
   --sidebar-accent-foreground: #f1f5f9;
-  --sidebar-border: #2d4d39;
+  --sidebar-border: #1A1A1A;
   --sidebar-ring: #64748b;
 }
 
@@ -179,28 +179,28 @@
     line-height: 1.5;
   }
 
-  /* Custom brand utility classes */
+  /* Custom brand utility classes — Bricore dark theme */
   .text-brand-primary {
-    color: #203727;
+    color: #E8491F;
   }
 
   .text-brand-secondary {
-    color: #974926;
+    color: #FF6B45;
   }
 
   .bg-brand-primary {
-    background-color: #203727;
+    background-color: #E8491F;
   }
 
   .bg-brand-secondary {
-    background-color: #974926;
+    background-color: #0D0D0D;
   }
 
   .border-brand-primary {
-    border-color: #203727;
+    border-color: #E8491F;
   }
 
   .border-brand-secondary {
-    border-color: #974926;
+    border-color: #1A1A1A;
   }
 }

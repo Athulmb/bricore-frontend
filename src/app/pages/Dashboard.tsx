@@ -1,4 +1,4 @@
-import { KPICard } from '../components/common/KPICard';
+﻿import { KPICard } from '../components/common/KPICard';
 import { PageHeader } from '../components/common/PageHeader';
 import { StatusBadge } from '../components/common/StatusBadge';
 import { Card } from '../components/ui/card';
@@ -72,7 +72,7 @@ export function Dashboard() {
     return (
       <div className="flex h-[80vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+          <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
           <p className="text-gray-500 font-medium">Aggregating operational data...</p>
         </div>
       </div>

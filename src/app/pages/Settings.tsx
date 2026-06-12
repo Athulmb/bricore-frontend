@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router';
 import { PageHeader } from '../components/common/PageHeader';
 import { Card } from '../components/ui/card';
@@ -55,7 +55,7 @@ export function Settings() {
     return (
       <div className="flex h-[80vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+          <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
           <p className="text-gray-500 font-medium">Loading system settings...</p>
         </div>
       </div>
@@ -199,7 +199,7 @@ export function Settings() {
 
               <div className="flex justify-end gap-2 text-primary">
                 <Button type="button" variant="outline" onClick={() => setFormData({ ...companySettings })}>Reset</Button>
-                <Button type="button" onClick={handleSaveCompanyInfo} className="bg-[#203727] hover:bg-[#2d4d39]">
+                <Button type="button" onClick={handleSaveCompanyInfo} className="bg-[#0D0D0D] hover:bg-[#1A1A1A]">
                   <Save className="h-4 w-4 mr-2" />
                   Save Changes
                 </Button>
@@ -571,7 +571,7 @@ export function Settings() {
 
               <div className="flex justify-end gap-2 text-primary">
                 <Button type="button" variant="outline" onClick={() => setFormData({ ...companySettings })}>Reset System</Button>
-                <Button type="button" onClick={handleSaveCompanyInfo} className="bg-[#203727] hover:bg-[#2d4d39]">
+                <Button type="button" onClick={handleSaveCompanyInfo} className="bg-[#0D0D0D] hover:bg-[#1A1A1A]">
                   <Save className="h-4 w-4 mr-2" />
                   Apply Changes
                 </Button>
@@ -620,7 +620,7 @@ function ListCard({ title, description, items, onAdd, onRemove }: {
         <Button
           type="button"
           size="icon"
-          className="bg-[#203727]"
+          className="bg-[#0D0D0D]"
           onClick={() => {
             if (newItem.trim()) {
               onAdd(newItem.trim());

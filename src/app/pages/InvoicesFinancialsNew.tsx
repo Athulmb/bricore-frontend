@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+﻿import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router';
 import { Card } from '../components/ui/card';
 import { Button } from '../components/ui/button';
@@ -124,7 +124,7 @@ export function InvoicesFinancials() {
     return (
       <div className="flex h-[80vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-12 w-12 animate-spin text-[#974926]" />
+          <Loader2 className="h-12 w-12 animate-spin text-[#E8491F]" />
           <p className="text-gray-500 font-medium">Loading financial records...</p>
         </div>
       </div>
@@ -138,12 +138,12 @@ export function InvoicesFinancials() {
     const bank = currentCurr.bankDetails;
 
     // Company Header with GME Branding
-    doc.setFillColor(32, 55, 39); // #203727 - GME Deep Green
+    doc.setFillColor(13, 13, 13); // #0D0D0D - GME Deep Green
     doc.rect(0, 0, 210, 40, 'F');
 
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(22);
-    doc.text(companySettings?.name.toUpperCase() || 'GME', 14, 20);
+    doc.text(companySettings?.name.toUpperCase() || 'BRITCORE', 14, 20);
 
     doc.setFontSize(10);
     doc.text(`RC No: ${companySettings?.rcNumber} | TIN Number: ${companySettings?.tin}`, 14, 28);
@@ -151,7 +151,7 @@ export function InvoicesFinancials() {
 
 
     // Invoice Title
-    doc.setTextColor(32, 55, 39);
+    doc.setTextColor(13, 13, 13);
     doc.setFontSize(20);
     doc.text('INVOICE', 196, 20, { align: 'right' });
 
@@ -163,7 +163,7 @@ export function InvoicesFinancials() {
     doc.text(`Shipment ID: ${invoice.shipmentId}`, 196, 40, { align: 'right' });
 
     // Bill To Section
-    doc.setTextColor(32, 55, 39);
+    doc.setTextColor(13, 13, 13);
     doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
     doc.text('BILL TO:', 14, 55);
@@ -195,7 +195,7 @@ export function InvoicesFinancials() {
       body: tableData,
       theme: 'grid',
       headStyles: {
-        fillColor: [32, 55, 39],
+        fillColor: [13, 13, 13],
         textColor: [255, 255, 255],
         fontSize: 10,
         fontStyle: 'bold',
@@ -212,12 +212,12 @@ export function InvoicesFinancials() {
     doc.text('Discount:', totalsX, finalY + 7);
     doc.text('VAT (7.5%):', totalsX, finalY + 14);
 
-    doc.setDrawColor(32, 55, 39);
+    doc.setDrawColor(13, 13, 13);
     doc.setLineWidth(0.5);
     doc.line(totalsX, finalY + 17, 196, finalY + 17);
 
     doc.setFontSize(11);
-    doc.setTextColor(32, 55, 39);
+    doc.setTextColor(13, 13, 13);
     doc.setFont('helvetica', 'bold');
     doc.text('TOTAL AMOUNT:', totalsX, finalY + 24);
 
@@ -229,7 +229,7 @@ export function InvoicesFinancials() {
     doc.text(formatCurrency(invoice.vat || 0, false, invoice.currency), 196, finalY + 14, { align: 'right' });
 
     doc.setFontSize(12);
-    doc.setTextColor(32, 55, 39);
+    doc.setTextColor(13, 13, 13);
     doc.setFont('helvetica', 'bold');
     doc.text(formatCurrency(invoice.amount, false, invoice.currency), 196, finalY + 24, { align: 'right' });
 
@@ -238,7 +238,7 @@ export function InvoicesFinancials() {
     doc.setFillColor(245, 245, 245);
     doc.rect(14, bankY, 182, 30, 'F');
 
-    doc.setTextColor(32, 55, 39);
+    doc.setTextColor(13, 13, 13);
     doc.setFontSize(10);
     doc.text('PAYMENT INFORMATION', 18, bankY + 8);
 
@@ -276,7 +276,7 @@ export function InvoicesFinancials() {
             </Button>
             <Button
               size="sm"
-              className="bg-[#203727] hover:bg-[#2d4d39]"
+              className="bg-[#0D0D0D] hover:bg-[#1A1A1A]"
               onClick={() => navigate('/invoices-financials/new')}
             >
               <Plus className="h-4 w-4 mr-2" />
@@ -348,7 +348,7 @@ export function InvoicesFinancials() {
                       <span className="text-gray-900">{invoice.client}</span>
                     </div>
                   </TableCell>
-                  <TableCell className="text-[#974926] font-medium">{invoice.shipmentId}</TableCell>
+                  <TableCell className="text-[#E8491F] font-medium">{invoice.shipmentId}</TableCell>
                   <TableCell>
                     <span className={`inline-flex items-center gap-1 text-sm ${invoice.status === 'Paid' ? 'text-green-600' :
                       invoice.status === 'Pending' ? 'text-orange-600' : 'text-gray-600'
@@ -375,20 +375,20 @@ export function InvoicesFinancials() {
 
         {/* Selection Actions */}
         {selectedItems.length > 0 && (
-          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-[#203727] text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-4 z-40">
+          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-[#0D0D0D] text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-4 z-40">
             <button onClick={() => setSelectedItems([])}>
               <X className="h-4 w-4" />
             </button>
             <span className="text-sm font-medium">Selected: {selectedItems.length}</span>
             <div className="flex gap-2">
-              <Button size="sm" variant="outline" className="bg-white text-[#203727] hover:bg-gray-100" onClick={() => toast.success('Exporting selected...')}>
+              <Button size="sm" variant="outline" className="bg-white text-[#0D0D0D] hover:bg-gray-100" onClick={() => toast.success('Exporting selected...')}>
                 <Download className="h-4 w-4 mr-2" />
                 Export
               </Button>
-              <Button size="sm" variant="outline" className="bg-white text-[#203727] hover:bg-gray-100" onClick={() => toast.success('Printing selected...')}>
+              <Button size="sm" variant="outline" className="bg-white text-[#0D0D0D] hover:bg-gray-100" onClick={() => toast.success('Printing selected...')}>
                 Print
               </Button>
-              <Button size="sm" variant="outline" className="bg-white text-[#203727] hover:bg-gray-100" onClick={() => toast.success('Emails queued...')}>
+              <Button size="sm" variant="outline" className="bg-white text-[#0D0D0D] hover:bg-gray-100" onClick={() => toast.success('Emails queued...')}>
                 Send Email
               </Button>
             </div>
@@ -416,7 +416,7 @@ export function InvoicesFinancials() {
                   cx="64"
                   cy="64"
                   r="56"
-                  stroke="#974926"
+                  stroke="#E8491F"
                   strokeWidth="12"
                   fill="none"
                   strokeDasharray={`${(stats.paidPercent / 100) * 352} 352`}
@@ -545,7 +545,7 @@ export function InvoicesFinancials() {
                     <p className="text-xs text-gray-500">{client.count} invoices</p>
                   </div>
                 </div>
-                <span className="text-sm font-medium text-[#974926]">{formatCurrency(client.total)}</span>
+                <span className="text-sm font-medium text-[#E8491F]">{formatCurrency(client.total)}</span>
               </div>
             ))}
           </div>
