@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { PageHeader } from '../components/common/PageHeader';
 import { StatusBadge } from '../components/common/StatusBadge';
@@ -321,7 +321,10 @@ export function SampleDetail() {
                                                                 <Button
                                                                     variant="ghost"
                                                                     size="sm"
-                                                                    onClick={() => window.open(`http://localhost:5001${value}`, '_blank')}
+                                                                    onClick={() => {
+                                                                        const baseUrl = (import.meta.env.VITE_API_URL || 'http://localhost:5001/api').replace(/\/api$/, '');
+                                                                        window.open(`${baseUrl}${value}`, '_blank');
+                                                                    }}
                                                                 >
                                                                     <Eye className="h-4 w-4" />
                                                                 </Button>

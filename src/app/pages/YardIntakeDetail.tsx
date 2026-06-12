@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { ArrowLeft, FileText, Package, Truck, User, Calendar, MapPin, Scale, CheckCircle, Pencil, X, TrendingUp, Loader2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
@@ -312,7 +312,7 @@ export function YardIntakeDetail() {
         <div className="flex justify-between items-end">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">GOODS RECEIPT NOTE</h1>
-            <p className="text-gray-600">Britcore Operations</p>
+            <p className="text-gray-600">Bricore Operations</p>
           </div>
           <div className="text-right">
             <p className="font-bold text-xl">{intakeData.grnNumber}</p>

@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router';
 import { PageHeader } from '../components/common/PageHeader';
 import { Card } from '../components/ui/card';
@@ -80,114 +80,120 @@ export function Settings() {
         </TabsList>
 
         <TabsContent value="company">
-          <Card className="bg-white border border-gray-200 p-6">
+          <div className="glass-card p-6">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center">
-                <Building2 className="h-6 w-6 text-blue-600" />
+              <div className="h-12 w-12 rounded-xl bg-[#E8491F]/15 border border-[#E8491F]/20 flex items-center justify-center shadow-lg shadow-[#E8491F]/10">
+                <Building2 className="h-6 w-6 text-[#E8491F]" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900">Company Information</h3>
-                <p className="text-sm text-gray-600">Update your company details and branding for compliance</p>
+                <h3 className="font-semibold text-white/95">Company Information</h3>
+                <p className="text-sm text-white/40">Update your company details and branding for compliance</p>
               </div>
             </div>
 
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="company-name">Company Name</Label>
+                  <Label htmlFor="company-name" className="text-white/60">Company Name</Label>
                   <Input
                     id="company-name"
-                    value={formData.name}
+                    value={formData.name || ''}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="bg-white/[0.05] border-white/10 text-white/80 placeholder:text-white/20 focus:ring-2 focus:ring-[#E8491F]/30 focus:border-[#E8491F]/40"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="company-reg">RC Number (Registration Number)</Label>
+                  <Label htmlFor="company-reg" className="text-white/60">RC Number (Registration Number)</Label>
                   <Input
                     id="company-reg"
-                    value={formData.rcNumber}
+                    value={formData.rcNumber || ''}
                     onChange={(e) => setFormData({ ...formData, rcNumber: e.target.value })}
+                    className="bg-white/[0.05] border-white/10 text-white/80 placeholder:text-white/20 focus:ring-2 focus:ring-[#E8491F]/30 focus:border-[#E8491F]/40"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="address">Registered Business Address</Label>
+                <Label htmlFor="address" className="text-white/60">Registered Business Address</Label>
                 <Textarea
                   id="address"
                   rows={3}
-                  value={formData.address}
+                  value={formData.address || ''}
                   onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                  className="bg-white/[0.05] border-white/10 text-white/80 placeholder:text-white/20 focus:ring-2 focus:ring-[#E8491F]/30 focus:border-[#E8491F]/40"
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
+                  <Label htmlFor="phone" className="text-white/60">Phone Number</Label>
                   <Input
                     id="phone"
-                    value={formData.phone}
+                    value={formData.phone || ''}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="bg-white/[0.05] border-white/10 text-white/80 placeholder:text-white/20 focus:ring-2 focus:ring-[#E8491F]/30 focus:border-[#E8491F]/40"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="company-email">Company Email</Label>
+                  <Label htmlFor="company-email" className="text-white/60">Company Email</Label>
                   <Input
                     id="company-email"
                     type="email"
-                    value={formData.email}
+                    value={formData.email || ''}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="bg-white/[0.05] border-white/10 text-white/80 placeholder:text-white/20 focus:ring-2 focus:ring-[#E8491F]/30 focus:border-[#E8491F]/40"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="tin-number" className="after:content-['*'] after:ml-0.5 after:text-red-500">TIN Number (Taxpayer Identification Number)</Label>
+                  <Label htmlFor="tin-number" className="text-white/60 after:content-['*'] after:ml-0.5 after:text-red-500">TIN Number (Taxpayer Identification Number)</Label>
                   <Input
                     id="tin-number"
-                    value={formData.tin}
+                    value={formData.tin || ''}
                     onChange={(e) => setFormData({ ...formData, tin: e.target.value })}
-                    className="max-w-[50%]"
+                    className="max-w-[50%] bg-white/[0.05] border-white/10 text-white/80 placeholder:text-white/20 focus:ring-2 focus:ring-[#E8491F]/30 focus:border-[#E8491F]/40"
                   />
                 </div>
               </div>
 
-              <Separator className="my-6" />
+              <div className="h-px bg-white/10 my-6" />
 
               <div className="space-y-6">
-                <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-500">Financial Settings</h4>
-                <div className="grid grid-cols-2 gap-4">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-white/45">Financial Settings</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="vat">Default VAT Percentage (%)</Label>
+                    <Label htmlFor="vat" className="text-white/60">Default VAT Percentage (%)</Label>
                     <Input
                       id="vat"
                       type="number"
                       step="0.1"
-                      value={formData.vatPercentage}
+                      value={formData.vatPercentage || 0}
                       onChange={(e) => setFormData({ ...formData, vatPercentage: parseFloat(e.target.value) || 0 })}
+                      className="bg-white/[0.05] border-white/10 text-white/80 placeholder:text-white/20 focus:ring-2 focus:ring-[#E8491F]/30 focus:border-[#E8491F]/40"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="discount">Default Discount Value</Label>
+                    <Label htmlFor="discount" className="text-white/60">Default Discount Value</Label>
                     <div className="flex gap-2">
                       <Input
                         id="discount"
                         type="number"
-                        value={formData.defaultDiscountValue}
+                        value={formData.defaultDiscountValue || 0}
                         onChange={(e) => setFormData({ ...formData, defaultDiscountValue: parseFloat(e.target.value) || 0 })}
-                        className="flex-1"
+                        className="flex-1 bg-white/[0.05] border-white/10 text-white/80 placeholder:text-white/20 focus:ring-2 focus:ring-[#E8491F]/30 focus:border-[#E8491F]/40"
                       />
                       <Select
-                        value={formData.defaultDiscountType}
+                        value={formData.defaultDiscountType || 'Percentage'}
                         onValueChange={(v: any) => setFormData({ ...formData, defaultDiscountType: v })}
                       >
-                        <SelectTrigger className="w-32">
+                        <SelectTrigger className="w-32 bg-white/[0.05] border-white/10 text-white/80">
                           <SelectValue />
                         </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="Percentage">%</SelectItem>
-                          <SelectItem value="Fixed">Fixed</SelectItem>
+                        <SelectContent className="bg-[#1a1a1e] border-white/10 text-white/80">
+                          <SelectItem value="Percentage" className="hover:bg-white/10">%</SelectItem>
+                          <SelectItem value="Fixed" className="hover:bg-white/10">Fixed</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -195,17 +201,28 @@ export function Settings() {
                 </div>
               </div>
 
-              <Separator className="my-6" />
+              <div className="h-px bg-white/10 my-6" />
 
-              <div className="flex justify-end gap-2 text-primary">
-                <Button type="button" variant="outline" onClick={() => setFormData({ ...companySettings })}>Reset</Button>
-                <Button type="button" onClick={handleSaveCompanyInfo} className="bg-[#0D0D0D] hover:bg-[#1A1A1A]">
+              <div className="flex justify-end gap-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setFormData({ ...companySettings })}
+                  className="border-white/15 text-white/70 hover:bg-white/10 hover:text-white bg-transparent"
+                >
+                  Reset
+                </Button>
+                <Button
+                  type="button"
+                  onClick={handleSaveCompanyInfo}
+                  className="bg-[#E8491F] hover:bg-[#C93D18] text-white shadow-lg shadow-[#E8491F]/25"
+                >
                   <Save className="h-4 w-4 mr-2" />
                   Save Changes
                 </Button>
               </div>
             </div>
-          </Card>
+          </div>
         </TabsContent>
 
         <TabsContent value="lists">
@@ -376,161 +393,161 @@ export function Settings() {
         </TabsContent>
 
         <TabsContent value="notifications">
-          <Card className="bg-white border border-gray-200 p-6">
+          <div className="glass-card p-6">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center">
-                <Bell className="h-6 w-6 text-blue-600" />
+              <div className="h-12 w-12 rounded-xl bg-[#E8491F]/15 border border-[#E8491F]/20 flex items-center justify-center shadow-lg shadow-[#E8491F]/10">
+                <Bell className="h-6 w-6 text-[#E8491F]" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900">Notification Preferences</h3>
-                <p className="text-sm text-gray-600">Manage your notification settings</p>
+                <h3 className="font-semibold text-white/95">Notification Preferences</h3>
+                <p className="text-sm text-white/40">Manage your notification settings</p>
               </div>
             </div>
 
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium">Quality Alert Notifications</p>
-                  <p className="text-sm text-gray-600">Receive alerts when quality tests fail</p>
+                  <p className="font-medium text-white/90">Quality Alert Notifications</p>
+                  <p className="text-sm text-white/40">Receive alerts when quality tests fail</p>
                 </div>
                 <Switch defaultChecked />
               </div>
 
-              <Separator />
+              <div className="h-px bg-white/10" />
 
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium">Dispatch Notifications</p>
-                  <p className="text-sm text-gray-600">Get notified when shipments are dispatched</p>
+                  <p className="font-medium text-white/90">Dispatch Notifications</p>
+                  <p className="text-sm text-white/40">Get notified when shipments are dispatched</p>
                 </div>
                 <Switch defaultChecked />
               </div>
 
-              <Separator />
+              <div className="h-px bg-white/10" />
 
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium">Invoice Reminders</p>
-                  <p className="text-sm text-gray-600">Receive reminders for pending invoices</p>
+                  <p className="font-medium text-white/90">Invoice Reminders</p>
+                  <p className="text-sm text-white/40">Receive reminders for pending invoices</p>
                 </div>
                 <Switch defaultChecked />
               </div>
 
-              <Separator />
+              <div className="h-px bg-white/10" />
 
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium">Low Inventory Alerts</p>
-                  <p className="text-sm text-gray-600">Get alerts when inventory is low</p>
+                  <p className="font-medium text-white/90">Low Inventory Alerts</p>
+                  <p className="text-sm text-white/40">Get alerts when inventory is low</p>
                 </div>
                 <Switch />
               </div>
 
-              <Separator />
+              <div className="h-px bg-white/10" />
 
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium">Email Digest</p>
-                  <p className="text-sm text-gray-600">Receive daily summary via email</p>
+                  <p className="font-medium text-white/90">Email Digest</p>
+                  <p className="text-sm text-white/40">Receive daily summary via email</p>
                 </div>
                 <Switch defaultChecked />
               </div>
 
-              <Separator className="my-6" />
+              <div className="h-px bg-white/10 my-6" />
 
-              <div className="flex justify-end gap-2 text-primary">
-                <Button type="button" variant="outline">Reset to Default</Button>
-                <Button type="button">Save Preferences</Button>
+              <div className="flex justify-end gap-2">
+                <Button variant="outline" className="border-white/15 text-white/70 hover:bg-white/10 hover:text-white bg-transparent">Reset to Default</Button>
+                <Button className="bg-[#E8491F] hover:bg-[#C93D18] text-white shadow-lg shadow-[#E8491F]/25">Save Preferences</Button>
               </div>
             </div>
-          </Card>
+          </div>
         </TabsContent>
 
         <TabsContent value="security">
-          <Card className="bg-white border border-gray-200 p-6">
+          <div className="glass-card p-6">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center">
-                <Shield className="h-6 w-6 text-blue-600" />
+              <div className="h-12 w-12 rounded-xl bg-[#E8491F]/15 border border-[#E8491F]/20 flex items-center justify-center shadow-lg shadow-[#E8491F]/10">
+                <Shield className="h-6 w-6 text-[#E8491F]" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900">Security Settings</h3>
-                <p className="text-sm text-gray-600">Manage security and access controls</p>
+                <h3 className="font-semibold text-white/95">Security Settings</h3>
+                <p className="text-sm text-white/40">Manage security and access controls</p>
               </div>
             </div>
 
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium">Two-Factor Authentication</p>
-                  <p className="text-sm text-gray-600">Add an extra layer of security to your account</p>
+                  <p className="font-medium text-white/90">Two-Factor Authentication</p>
+                  <p className="text-sm text-white/40">Add an extra layer of security to your account</p>
                 </div>
                 <Switch />
               </div>
 
-              <Separator />
+              <div className="h-px bg-white/10" />
 
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium">Session Timeout</p>
-                  <p className="text-sm text-gray-600">Auto logout after 30 minutes of inactivity</p>
+                  <p className="font-medium text-white/90">Session Timeout</p>
+                  <p className="text-sm text-white/40">Auto logout after 30 minutes of inactivity</p>
                 </div>
                 <Switch defaultChecked />
               </div>
 
-              <Separator />
+              <div className="h-px bg-white/10" />
 
               <div>
-                <p className="font-medium mb-3">Change Password</p>
+                <p className="font-medium text-white/90 mb-3">Change Password</p>
                 <div className="space-y-3 max-w-md">
-                  <Input type="password" placeholder="Current Password" />
-                  <Input type="password" placeholder="New Password" />
-                  <Input type="password" placeholder="Confirm New Password" />
-                  <Button type="button" size="sm">Update Password</Button>
+                  <Input type="password" placeholder="Current Password" className="bg-white/[0.05] border-white/10 text-white/80 placeholder:text-white/20 focus:ring-2 focus:ring-[#E8491F]/30 focus:border-[#E8491F]/40" />
+                  <Input type="password" placeholder="New Password" className="bg-white/[0.05] border-white/10 text-white/80 placeholder:text-white/20 focus:ring-2 focus:ring-[#E8491F]/30 focus:border-[#E8491F]/40" />
+                  <Input type="password" placeholder="Confirm New Password" className="bg-white/[0.05] border-white/10 text-white/80 placeholder:text-white/20 focus:ring-2 focus:ring-[#E8491F]/30 focus:border-[#E8491F]/40" />
+                  <Button type="button" className="bg-[#E8491F] hover:bg-[#C93D18] text-white shadow-lg shadow-[#E8491F]/25">Update Password</Button>
                 </div>
               </div>
 
-              <Separator className="my-6" />
+              <div className="h-px bg-white/10 my-6" />
 
-              <div className="flex justify-end gap-2 text-primary">
-                <Button type="button" variant="outline">Cancel</Button>
-                <Button type="button">Save Settings</Button>
+              <div className="flex justify-end gap-2">
+                <Button variant="outline" className="border-white/15 text-white/70 hover:bg-white/10 hover:text-white bg-transparent">Cancel</Button>
+                <Button className="bg-[#E8491F] hover:bg-[#C93D18] text-white shadow-lg shadow-[#E8491F]/25">Save Settings</Button>
               </div>
             </div>
-          </Card>
+          </div>
         </TabsContent>
 
         <TabsContent value="system">
-          <Card className="bg-white border border-gray-200 p-6">
+          <div className="glass-card p-6">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center">
-                <Database className="h-6 w-6 text-blue-600" />
+              <div className="h-12 w-12 rounded-xl bg-[#E8491F]/15 border border-[#E8491F]/20 flex items-center justify-center shadow-lg shadow-[#E8491F]/10">
+                <Database className="h-6 w-6 text-[#E8491F]" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900">System Configuration</h3>
-                <p className="text-sm text-gray-600">Advanced system settings and integrations</p>
+                <h3 className="font-semibold text-white/95">System Configuration</h3>
+                <p className="text-sm text-white/40">Advanced system settings and integrations</p>
               </div>
             </div>
 
             <div className="space-y-6">
               <div>
-                <Label htmlFor="timezone">Default Timezone</Label>
-                <Input id="timezone" defaultValue="Asia/Kolkata (IST)" className="mt-2 max-w-md" />
+                <Label htmlFor="timezone" className="text-white/60">Default Timezone</Label>
+                <Input id="timezone" defaultValue="Asia/Kolkata (IST)" className="mt-2 max-w-md bg-white/[0.05] border-white/10 text-white/80 placeholder:text-white/20 focus:ring-2 focus:ring-[#E8491F]/30 focus:border-[#E8491F]/40" />
               </div>
 
-              <Separator />
+              <div className="h-px bg-white/10" />
 
               <div>
-                <Label htmlFor="currency">Default Currency</Label>
+                <Label htmlFor="currency" className="text-white/60">Default Currency</Label>
                 <Select
                   value={formData.currency || 'AED'}
                   onValueChange={(v: CurrencyCode) => setFormData({ ...formData, currency: v })}
                 >
-                  <SelectTrigger className="mt-2 max-w-md">
+                  <SelectTrigger className="mt-2 max-w-md bg-white/[0.05] border-white/10 text-white/80">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-[#1a1a1e] border-white/10 text-white/80">
                     {Object.values(currencies).map((c) => (
-                      <SelectItem key={c.code} value={c.code}>
+                      <SelectItem key={c.code} value={c.code} className="hover:bg-white/10">
                         {c.code} ({c.symbol}) - {c.label}
                       </SelectItem>
                     ))}
@@ -538,46 +555,46 @@ export function Settings() {
                 </Select>
               </div>
 
-              <Separator />
+              <div className="h-px bg-white/10" />
 
               <div>
-                <Label htmlFor="date-format">Date Format</Label>
-                <Input id="date-format" defaultValue="YYYY-MM-DD" className="mt-2 max-w-md" />
+                <Label htmlFor="date-format" className="text-white/60">Date Format</Label>
+                <Input id="date-format" defaultValue="YYYY-MM-DD" className="mt-2 max-w-md bg-white/[0.05] border-white/10 text-white/80 placeholder:text-white/20 focus:ring-2 focus:ring-[#E8491F]/30 focus:border-[#E8491F]/40" />
               </div>
 
-              <Separator />
+              <div className="h-px bg-white/10" />
 
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium">Automatic Backup</p>
-                  <p className="text-sm text-gray-600">Enable daily automated database backups</p>
+                  <p className="font-medium text-white/90">Automatic Backup</p>
+                  <p className="text-sm text-white/40">Enable daily automated database backups</p>
                 </div>
                 <Switch defaultChecked />
               </div>
 
-              <Separator />
+              <div className="h-px bg-white/10" />
 
               <div>
-                <p className="font-medium mb-2">System Information</p>
-                <div className="bg-gray-50 p-4 rounded-md text-sm space-y-1">
-                  <p className="text-gray-600">Version: 2.4.1</p>
-                  <p className="text-gray-600">Last Updated: February 1, 2026</p>
-                  <p className="text-gray-600">Database Size: 2.8 GB</p>
-                  <p className="text-gray-600">License: Enterprise</p>
+                <p className="font-medium text-white/90 mb-2">System Information</p>
+                <div className="bg-white/[0.04] p-4 rounded-xl border border-white/5 text-sm space-y-1">
+                  <p className="text-white/60">Version: 2.4.1</p>
+                  <p className="text-white/60">Last Updated: February 1, 2026</p>
+                  <p className="text-white/60">Database Size: 2.8 GB</p>
+                  <p className="text-white/60">License: Enterprise</p>
                 </div>
               </div>
 
-              <Separator className="my-6" />
+              <div className="h-px bg-white/10 my-6" />
 
-              <div className="flex justify-end gap-2 text-primary">
-                <Button type="button" variant="outline" onClick={() => setFormData({ ...companySettings })}>Reset System</Button>
-                <Button type="button" onClick={handleSaveCompanyInfo} className="bg-[#0D0D0D] hover:bg-[#1A1A1A]">
+              <div className="flex justify-end gap-2">
+                <Button type="button" variant="outline" onClick={() => setFormData({ ...companySettings })} className="border-white/15 text-white/70 hover:bg-white/10 hover:text-white bg-transparent">Reset System</Button>
+                <Button type="button" onClick={handleSaveCompanyInfo} className="bg-[#E8491F] hover:bg-[#C93D18] text-white shadow-lg shadow-[#E8491F]/25">
                   <Save className="h-4 w-4 mr-2" />
                   Apply Changes
                 </Button>
               </div>
             </div>
-          </Card>
+          </div>
         </TabsContent>
       </Tabs>
     </div>
@@ -594,14 +611,14 @@ function ListCard({ title, description, items, onAdd, onRemove }: {
   const [newItem, setNewItem] = useState('');
 
   return (
-    <Card className="bg-white border border-gray-200 p-6 flex flex-col h-full">
+    <div className="glass-card p-6 flex flex-col h-full">
       <div className="flex items-center gap-3 mb-4">
-        <div className="h-10 w-10 rounded-lg bg-green-50 flex items-center justify-center">
-          <ListTodo className="h-5 w-5 text-green-600" />
+        <div className="h-10 w-10 rounded-xl bg-[#E8491F]/15 border border-[#E8491F]/20 flex items-center justify-center shadow-lg shadow-[#E8491F]/10">
+          <ListTodo className="h-5 w-5 text-[#E8491F]" />
         </div>
         <div>
-          <h3 className="font-semibold text-gray-900">{title}</h3>
-          <p className="text-xs text-gray-600">{description}</p>
+          <h3 className="font-semibold text-white/95">{title}</h3>
+          <p className="text-xs text-white/40">{description}</p>
         </div>
       </div>
 
@@ -610,6 +627,7 @@ function ListCard({ title, description, items, onAdd, onRemove }: {
           placeholder="Add new..."
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
+          className="bg-white/[0.05] border-white/10 text-white/80 placeholder:text-white/20 focus:ring-2 focus:ring-[#E8491F]/30 focus:border-[#E8491F]/40"
           onKeyDown={(e) => {
             if (e.key === 'Enter' && newItem.trim()) {
               onAdd(newItem.trim());
@@ -620,7 +638,7 @@ function ListCard({ title, description, items, onAdd, onRemove }: {
         <Button
           type="button"
           size="icon"
-          className="bg-[#0D0D0D]"
+          className="bg-[#E8491F] hover:bg-[#C93D18] text-white shadow-lg shadow-[#E8491F]/20"
           onClick={() => {
             if (newItem.trim()) {
               onAdd(newItem.trim());
@@ -634,13 +652,13 @@ function ListCard({ title, description, items, onAdd, onRemove }: {
 
       <div className="flex-1 overflow-y-auto max-h-[300px] space-y-2 pr-2">
         {items.map((item, index) => (
-          <div key={index} className="flex items-center justify-between p-2 bg-gray-50 rounded-md border border-gray-100">
-            <span className="text-sm">{item}</span>
+          <div key={index} className="flex items-center justify-between p-2 bg-white/[0.04] rounded-lg border border-white/5">
+            <span className="text-sm text-white/80">{item}</span>
             <Button
               type="button"
               variant="ghost"
               size="icon"
-              className="h-7 w-7 text-gray-400 hover:text-red-500"
+              className="h-7 w-7 text-white/45 hover:text-red-400"
               onClick={() => onRemove(index)}
             >
               <Trash2 className="h-4 w-4" />
@@ -648,9 +666,9 @@ function ListCard({ title, description, items, onAdd, onRemove }: {
           </div>
         ))}
         {items.length === 0 && (
-          <p className="text-center text-sm text-gray-400 py-4 italic">No items yet</p>
+          <p className="text-center text-sm text-white/30 py-4 italic">No items yet</p>
         )}
       </div>
-    </Card>
+    </div>
   );
 }

@@ -94,7 +94,7 @@ export function Sidebar() {
     >
       {/* Logo Header */}
       <div className={`flex items-center gap-3 px-4 py-5 border-b border-white/5 ${collapsed ? 'justify-center' : ''}`}>
-        <img src={logo} alt="Britcore" className="h-9 w-auto flex-shrink-0" />
+        <img src={logo} alt="Bricore" className="h-9 w-auto flex-shrink-0" />
         {!collapsed && (
           <div className="overflow-hidden">
             <p className="text-[10px] font-semibold text-white/40 uppercase tracking-widest">Operations</p>
@@ -220,7 +220,7 @@ export function Sidebar() {
         <div className="px-4 py-3 border-t border-white/5">
           <div className="flex items-center gap-2">
             <div className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <p className="text-[10px] text-white/25 font-medium">v2.4.1 · © 2026 Britcore</p>
+            <p className="text-[10px] text-white/25 font-medium">v2.4.1 · © 2026 Bricore</p>
           </div>
         </div>
       )}

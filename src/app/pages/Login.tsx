@@ -63,7 +63,7 @@ export function Login() {
       <div className="w-full max-w-[400px] relative z-10">
         {/* Logo */}
         <div className="text-center mb-8">
-          <img src={logo} alt="Britcore" className="h-14 w-auto mx-auto mb-4" />
+          <img src={logo} alt="Bricore" className="h-14 w-auto mx-auto mb-4" />
           <h1 className="text-white font-semibold text-lg">Welcome back</h1>
           <p className="text-white/40 text-sm mt-1">Sign in to Operations Platform</p>
         </div>
@@ -142,7 +142,7 @@ export function Login() {
 
         {/* Footer */}
         <p className="text-center text-[11px] text-white/20 mt-6">
-          © 2026 Britcore Resources · v2.5.0
+          © 2026 Bricore Resources · v2.5.0
         </p>
       </div>
     </div>
